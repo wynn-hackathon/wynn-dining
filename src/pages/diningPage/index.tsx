@@ -57,8 +57,9 @@ const Dining = ({ diningDetail, diningPage }: IndexProps) => {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const response1 = await client.getEntries({ content_type: 'dining' })
-  const response2 = await client.getEntries({ content_type: 'diningDetail' })
+  const response1 = await client.getEntries({ content_type: 'diningListPage' })
+  const response2 = await client.getEntries({ content_type: 'diningPage' })
+  console.log(response2.items)
 
   return {
     props: {

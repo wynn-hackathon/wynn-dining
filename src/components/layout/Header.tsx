@@ -50,7 +50,7 @@ const Header = () => {
                 <Link className={router.pathname == "/wynn-rewards" ? "nav-link" : "nav-link"} href="/wynn-rewards">Wynn Rewards</Link>
               </li>
               <li className="nav-item">
-                <Link className={router.pathname == "/dining" ? "nav-link active" : "nav-link"} href="/dining">Dining</Link>
+                <Link className={router.pathname == "/diningPage" ? "nav-link active" : "nav-link"} href="/diningPage">Dining</Link>
               </li>
               <li className="nav-item">
                 <Link className={router.pathname == "/casino" ? "nav-link active" : "nav-link"} href="/casino">Casino</Link>

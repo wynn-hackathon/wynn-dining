@@ -7,7 +7,7 @@ const PostCard = ({ restaurant }: any) => {
   return (
     <div className="col" data-cat={category}>
       <div className="card">
-        <Link href={`/dining/${slug}`} aria-label="View Detail">
+        <Link href={`/diningPage/${slug}`} aria-label="View Detail">
           <Image
             alt={`Cover Image for ${name}`}
             src={'https:' + thumbImage.fields.file.url}
@@ -23,7 +23,7 @@ const PostCard = ({ restaurant }: any) => {
       </div>
       <div className="ctas">
         <div><Link href={`#`} aria-label="View Menu" className=''>View Menu</Link></div>
-        <div><Link href={`/dining/${slug}`} aria-label="View Detail" className='btn btn-secondary'>View Detail</Link></div>
+        <div><Link href={`/diningPage/${slug}`} aria-label="View Detail" className='btn btn-secondary'>View Detail</Link></div>
 
       </div>
     </div>

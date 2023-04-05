@@ -1,6 +1,6 @@
 import RichText from '../RichText'
-import Gallery from '../_shared/_Gallery';
-import Info from '../_shared/_info';
+import Gallery from './_Gallery';
+import Info from './_Info';
 
 const PostBody = ({ restaurant }: any) => {
   const { content } = restaurant.fields;

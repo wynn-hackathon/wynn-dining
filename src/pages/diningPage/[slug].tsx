@@ -28,14 +28,14 @@ export const getStaticProps: GetStaticProps = async ({ params, preview = false }
 
   const { slug } = params
   const response = await cfClient.getEntries({
-    content_type: 'diningDetail',
+    content_type: 'diningPage',
     'fields.slug': slug
   })
 
   if (!response?.items?.length) {
     return {
       redirect: {
-        destination: '/dining',
+        destination: '/diningPage',
         permanent: false
       }
     }
@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps = async ({ params, preview = false }
 }
 
 export const getStaticPaths: GetStaticPaths = async() => {
-  const response = await client.getEntries({ content_type: 'diningDetail' })
+  const response = await client.getEntries({ content_type: 'diningPage' })
   const paths = response.items.map((item:any)=> ({
     params: { slug: item.fields.slug}
   }))
