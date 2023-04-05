@@ -1,8 +1,8 @@
 Dining Website
-- View list of dinings
-- View detail of a Dining
-- View the Menu of Dining
-- Reserve a table
+- View list of restaurants
+- View detail of a restaurant
+- View the Menu of a restaurants
+- Reserve a table of a restaurants
 
 ---
 
