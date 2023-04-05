@@ -22,8 +22,9 @@ const PostCard = ({ restaurant }: any) => {
         </div>
       </div>
       <div className="ctas">
-        <div><Link href={`/dining/${slug}`} aria-label="View Detail">View Detail</Link></div>
-        <div><Link href={`#`} aria-label="View Menu" className='btn btn-secondary'>View Menu</Link></div>
+        <div><Link href={`#`} aria-label="View Menu" className=''>View Menu</Link></div>
+        <div><Link href={`/dining/${slug}`} aria-label="View Detail" className='btn btn-secondary'>View Detail</Link></div>
+
       </div>
     </div>
   )
