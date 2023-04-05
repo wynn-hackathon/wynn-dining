@@ -1,0 +1,35 @@
+// ******************************************
+// Fonts
+// ******************************************
+@font-face {
+    font-family: 'Avenir_bold';
+    src: url('/fonts/avenirltstd-heavy.woff') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('/fonts/avenirltstd-medium.woff') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir_light';
+    src: url('/fonts/avenirltstd-light.woff') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'BigCaslon';
+    src: url('/fonts/BigCaslon-Medium.woff') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}

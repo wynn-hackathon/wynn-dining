@@ -1,0 +1,114 @@
+// ******************************************
+// Mixin
+// ******************************************
+
+// For Theme and dark/light mode
+@mixin spread-map($map: ()) {
+    @each $key, $value in $map {
+        #{$key}: $value;
+    }
+}
+
+// For animation
+@mixin transition($property) {
+    transition: #{$property} .3s ease;
+}
+
+
+// For size/line height of a font
+@mixin font-size($size) {
+    font-size: #{$size};
+    line-height: calc(1.5 * #{$size});
+    letter-spacing: 0.5px;
+}
+
+@mixin font-size-m($size) {
+    font-size: #{$size};
+    line-height: calc(1.2 * #{$size});
+    letter-spacing:0.5px;
+}
+
+// For header style
+@mixin header-style {
+    font-family: $font-bigCaslon;
+    font-weight: 500;
+    text-align: center;
+    color: var(--txt-color);
+}
+// header underline style
+@mixin header-style-underline {
+    position: relative;
+    padding-bottom: 10px;
+    margin: 0px auto 30px auto;
+    text-align: center;
+
+    @include media-size(big-mobile) {
+        margin: 0px auto 30px auto;
+    }
+
+    &:after {
+        content: '';
+        width: 72px;
+        height: 1px;
+        background-color: $brown700;
+        position: absolute;
+        bottom: 0px;
+        left: calc(50% - 36px);
+    }
+
+    .page-title {
+        @include font-size($font-size-14);
+        font-family: $font-avenir-light;
+        text-transform: uppercase;
+        color: $brown600;
+        text-align: center;
+        display: block;
+        letter-spacing: 2px;
+    }
+}
+
+//For CTA buttons
+@mixin cta-button {
+    font-family: $font-avenir;
+    @include font-size($font-size-14);
+    text-align: center;
+    font-weight:500;
+    text-transform: uppercase;
+    letter-spacing: 0.35px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 2px;
+    padding: 8px 20px;
+    min-width: 150px;
+
+    @include transition(background-color);
+}
+
+
+//For breakpoints
+@mixin media-size($size) {
+    @if $size == big-mobile {
+        @media (min-width: 576px) {
+            @content;
+        }
+    }
+    @else if $size == tablet {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+    @else if $size == desktop {
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+    @else if $size == big-desktop {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
+    @else if $size == XL-desktop {
+        @media (min-width: 1534px) {
+            @content;
+        }
+    }
+}

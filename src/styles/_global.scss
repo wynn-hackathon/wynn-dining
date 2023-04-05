@@ -1,0 +1,107 @@
+// ******************************************
+// Global
+// ******************************************
+
+body {
+    font-family: $font-avenir-light;
+    color: var(--txt-color);
+    background-color: var(--bg-color);
+    @include font-size($base-font-size);
+}
+
+a {
+    color: var($--secondary-color);
+    text-decoration: none;
+
+    &:hover {
+        color: var($--secondary-color);
+        text-decoration: underline;
+    }
+}
+
+//max container
+.container {
+    max-width: 1140px !important;
+}
+
+section {
+    margin-bottom: 90px;
+}
+
+// Heading
+h1,
+.h1,
+h2,
+.h2 {
+    @include header-style;
+}
+
+h1,
+.h1 {
+    @include font-size-m($font-size-28);
+
+    @include media-size(big-mobile) {
+        @include font-size($font-size-32);
+    }
+}
+
+h2,
+.h2 {
+    @include font-size-m($font-size-28);
+    @include header-style-underline;
+
+    @include media-size(big-mobile) {
+        @include font-size($font-size-32);
+    }
+}
+
+h3,
+.h3 {
+    text-align: left;
+    @include font-size-m($font-size-20);
+    font-family: $font-avenir-bold;
+
+    &::after {
+        display: none;
+    }
+}
+
+// CTA Buttons
+.btn {
+    @include cta-button;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: $white;
+
+    &:visited,
+    &:active,
+    &:first-child:active {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+    }
+
+    &:hover {
+        background-color: var(--secondary-color-hover);
+        border-color: var(--secondary-color-hover);
+    }
+}
+
+.btn-secondary {
+    background-color: $white;
+    color: var(--secondary-color);
+
+    &:visited,
+    &:active {
+        background-color: $white !important;
+        color: var(--secondary-color) !important;
+    }
+
+    &:hover {
+        background-color: var(--secondary-color);
+        color: $white;
+        border-color: var(--secondary-color-hover);
+        text-decoration: none;
+    }
+}

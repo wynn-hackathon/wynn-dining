@@ -1,0 +1,110 @@
+// ******************************************
+// headline box
+// ******************************************
+
+.banner {
+    height: auto;
+    width: 100%;
+    position: relative;
+    margin-bottom: 64px;
+
+    @include media-size(big-mobile) {
+        margin-bottom: 90px;
+    }
+
+    img {
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        object-position: center;
+        min-height: 300px;
+        height: auto;
+        width: 100%;
+
+        @include media-size(big-mobile) {
+            height: 414px;
+            min-height: 414px;
+
+        }
+
+        @include media-size(XL-desktop) {
+            aspect-ratio: 1536/414;
+            min-height: 414px;
+            height: auto;
+        }
+    }
+
+    .headline-box {
+        width: 100%;
+        margin: 0px auto;
+        display: flex;
+        justify-content: center;
+        margin-top: -100px;
+
+        .content-wrap {
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0px 3px 18px 3px rgba(119, 92, 61, 0.17);
+            border-radius: 8px;
+            text-align: center;
+            width: 90%;
+            max-width: 980px;
+            z-index: 10;
+        }
+
+        .headerContent {
+            padding: 30px 24px 40px 24px;
+            margin: 0px auto;
+            color: $brown600;
+            max-width: 800px;
+
+            .ctas {
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+
+                .btn {
+                    margin: 0px 5px;
+                }
+            }
+        }
+
+        h1.marketing-title {
+            @include header-style-underline;
+            margin-bottom: 15px !important;
+
+            .page-title {
+                margin-bottom: 5px;
+            }
+
+            @include media-size(big-mobile) {
+                max-width: 880px;
+            }
+        }
+    }
+
+    .img.mobile {
+        display: block;
+    }
+
+    .img.desktop {
+        display: none;
+    }
+
+    @include media-size(tablet) {
+        .img.mobile {
+            display: none;
+        }
+
+        .img.desktop {
+            display: block;
+        }
+    }
+}
+
+.headline {
+    margin-bottom: 50px;
+    .copy-wrap {
+        @include font-size($font-size-17);
+        text-align: center;
+    }
+}
+
