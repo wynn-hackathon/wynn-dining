@@ -19,9 +19,12 @@ Dining Website
 
 #### Dev Technologies
 ![nextjs](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-2B4C80?style=for-the-badge&logo=TypeScript&logoColor=white)
+![Contentful](https://img.shields.io/badge/Contentful-2B4C80?style=for-the-badge&logo=Contentful&logoColor=white)
+
 [![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
 ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
-![Sass](https://img.shields.io/badge/sass-2B4C80?style=for-the-badge&logo=less&logoColor=white)
+![Sass](https://img.shields.io/badge/sass-2B4C80?style=for-the-badge&logo=sass&logoColor=white)
 ![javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 
 #### Content
