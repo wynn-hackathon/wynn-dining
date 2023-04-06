@@ -13,7 +13,7 @@ type IndexProps = {
 
 const Dining = ({ diningDetail, diningPage }: IndexProps) => {
   const [category, setCategory] = useState([]);
-
+console.log(diningDetail)
   useEffect(() => {
     diningDetail.map((restaurant: any) => (category.push(restaurant.fields.category)))
     setCategory([...new Set(category)])
