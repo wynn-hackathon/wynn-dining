@@ -1,0 +1,58 @@
+.twoCols {
+  display: flex;
+  flex-wrap: wrap;
+
+  [data-pos="true"] {
+    flex-direction: row-reverse;
+  }
+
+  .pic {
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+  }
+}
+
+// Testimonial
+.testimonial-wrap {
+  background-color: $brown300;
+
+  .wynnLogo {
+    width: 96px;
+    height: 54px;
+    background: url("/images/crest_icon.svg") no-repeat center center;
+    background-size: cover;
+    margin: 0px auto;
+  }
+
+  .testimonial {
+    text-align: center;
+    padding: 50px 0px;
+    max-width: 940px;
+    margin: 0px auto;
+
+    .content {
+      font-family: $font-bigCaslon;
+      @include font-size($font-size-21);
+
+      @include media-size("desktop") {
+        @include font-size($font-size-24)
+      }
+    }
+
+    .signature {
+      font-family: $font-avenir;
+      @include font-size($font-size-18);
+      text-align: right;
+      text-transform: uppercase;
+      padding: 25px 20px 20px 0px;
+      margin: 0px;
+
+      &::before {
+        content: "--";
+      }
+    }
+  }
+}

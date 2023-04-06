@@ -15,7 +15,7 @@ const DinningDetail = ({ restaurant}:any) => {
           ) : (
             <>
               <PostHeader restaurant={restaurant} />
-              <div className='container'><PostBody restaurant={restaurant} /></div>
+              <PostBody restaurant={restaurant} />
             </>
           )}
         </article>
