@@ -27,7 +27,7 @@
     --bs-navbar-nav-link-padding-x: 1.15rem;
     padding: 0px;
 
-    @include media-size(desktop) {
+    @include media-size(big-mobile) {
         height: auto;
     }
 
@@ -38,7 +38,7 @@
         right: 5px;
         display: block;
 
-        @include media-size(desktop) {
+        @include media-size(big-mobile) {
             display: none;
         }
 
@@ -122,7 +122,7 @@
         }
 
 
-        @include media-size(desktop) {
+        @include media-size(big-mobile) {
             height: auto;
             opacity: 1;
             display: flex !important;
@@ -151,7 +151,7 @@
             text-transform: uppercase;
             margin-top: 10px;
 
-            @include media-size(desktop) {
+            @include media-size(big-mobile) {
                 margin-top: 0px;
             }
 
@@ -164,7 +164,7 @@
                 padding-right: 0px;
                 @include font-size($font-size-14);
 
-                @include media-size(desktop) {
+                @include media-size(big-mobile) {
                     padding-right: 1.15rem;
                     display: block;
                     padding-left: 1.15rem;
@@ -184,7 +184,7 @@
                     @include transition(all);
                     max-width: 110px;
 
-                    @include media-size(desktop) {
+                    @include media-size(big-mobile) {
                         width: 0px;
                     }
                 }
@@ -201,7 +201,7 @@
                         right: auto;
                         width: calc(100%);
 
-                        @include media-size(desktop) {
+                        @include media-size(big-mobile) {
                             left: 20px;
                             width: calc(100% - 40px);
                         }
@@ -227,7 +227,7 @@
 nav-item.hidden-d {
     display: block;
 
-    @include media-size(desktop) {
+    @include media-size(big-mobile) {
         display: none;
     }
 }

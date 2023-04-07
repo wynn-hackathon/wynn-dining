@@ -47,11 +47,11 @@ h1,
 
 h2,
 .h2 {
-    @include font-size-m($font-size-28);
+    @include font-size-m($font-size-24);
     @include header-style-underline;
 
     @include media-size(big-mobile) {
-        @include font-size($font-size-32);
+        @include font-size($font-size-28);
     }
 }
 
@@ -59,7 +59,7 @@ h3,
 .h3 {
     text-align: left;
     @include font-size-m($font-size-20);
-    font-family: $font-avenir-bold;
+    font-family: $font-avenir;
 
     &::after {
         display: none;

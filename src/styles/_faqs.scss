@@ -15,7 +15,7 @@
         color: $brown600 !important;
         text-transform: uppercase;
         background-color: transparent !important;
-        padding: 15px 30px 15px 0px;
+        padding: 15px 0px;
         cursor: pointer;
 
         &::after{
@@ -32,7 +32,7 @@
 
     .answer {
         color: $--txt-color;
-        padding-left: 0px ;
+        padding: 0px 25px 0px 0px ;
         margin-bottom: 20px;
     }
 }
