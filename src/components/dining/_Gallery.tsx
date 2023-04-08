@@ -1,31 +1,26 @@
-import Carousel from "react-multi-carousel"
-import 'react-multi-carousel/lib/styles.css'
 import Image from "next/image"
+import Slider from 'react-slick'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { _$ } from "@/lib/utils";
 
-
-const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
-};
-
-export const CarouselItems = ({ pic,i }: any) => {
-  console.log(i,pic.fields.title)
+// Custom next, previous buttons
+export const Arrow = (props: any) => {
+  let className = props.type === "next" ? "nextArrow" : "prevArrow previousBtn";
+  className += " arrow";
+  const char = props.type === "next" ? <Image src='/images/icon-arrow.svg' width='38' height='38' alt='Next' aria-label='Next' /> : <span className="preBtn"><Image src='/images/icon-arrow.svg' width='38' height='38' alt='Next' aria-label='Next' /></span>;
   return (
-    <div className="item">
+    <span className={className} onClick={props.onClick}>
+      {char}
+    </span>
+  );
+}
+
+//Render Item of Carousel
+export const CarouselItems = ({ pic, i }: any) => {
+
+  return (
+    <div className="item" data-curr={i}>
       <div className="pic-wrap">
         <Image
           alt={`Cover Image for ${pic.fields.title}`}
@@ -35,22 +30,65 @@ export const CarouselItems = ({ pic,i }: any) => {
           className="card-img-top" />
         <div className="overLay"></div>
       </div>
-      <p>{pic.fields.title}</p>
+      <p className="title">{pic.fields.title}</p>
     </div>
 
   )
 }
 
 const Gallery = ({ photos }: any) => {
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    centerMode: true,
+    arrows: true,
+    draggable: true,
+    nextArrow: <Arrow type="next" />,
+    prevArrow: <Arrow type="prev" />,
+    customPaging: function (i: number) {
+      const count = photos.fields.gallery.length
+      return <span>{i + 1 + ' / ' + count}</span>
+    },
+
+    responsive: [
+      {
+        breakpoint: 1350,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
+
   return (
     <section className="gallery">
-      <Carousel responsive={responsive} itemClass="p-2" centerMode={true} infinite={true} arrows={true}>
+      <Slider {...settings} >
         {photos.fields.gallery.map((pic: any, i: number) => (
           <CarouselItems pic={pic} key={i} i={i} />
         ))}
-      </Carousel>
+      </Slider>
+
     </section>
   )
 }
 
 export default Gallery
+
+

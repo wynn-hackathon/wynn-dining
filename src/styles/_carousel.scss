@@ -1,6 +1,57 @@
 .gallery {
-  .item{
+  .slick-slider {
+    position: relative;
+    padding-bottom: 0px;
+
+    .prevArrow,.nextArrow {
+      position: absolute;
+      left:calc(50% + 60px);
+      bottom: 40px;
+      z-index: 9999;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+        @include transition(all);
+      }
+
+    }
+    .prevArrow {
+      left:calc(50% - 100px);
+    }
+    .preBtn img{
+      transform: rotate(0.5turn);
+    }
+
+    .slick-dots {
+      width: 100px;
+      margin: 0px auto;
+      bottom: 50px;
+      left: calc(50% - 60px);
+
+      li{
+        width: 100%;
+        display: none;
+        &.slick-active {
+          display: block;
+        }
+      }
+    }
+
+    .title {
+      display: none;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      margin-bottom: 0px;
+    }
+  }
+
+  .item {
     text-align: center;
+    padding: 0px 10px 100px 10px;
+    position: relative;
 
     .pic-wrap{
       width: 100%;
@@ -24,7 +75,20 @@
       height: 100%;
       opacity: .5;
       background-color:$white;
+      pointer-events: none;
     }
   }
+
+  .slick-center {
+    .title{
+      display: block;
+
+    }
+    .overLay{
+      opacity: 0;
+    }
+  }
+
+
 
 }
