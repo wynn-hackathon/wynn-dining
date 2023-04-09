@@ -1,29 +1,29 @@
 
-import { client, previewClient}  from '../../lib/contentful/client'
+import { client, previewClient } from '../../lib/contentful/client'
 import { useRouter } from 'next/router'
-import { GetStaticProps, GetStaticPaths} from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
 import PostBody from '@/components/dining/PostBody';
 import PostHeader from '@/components/dining/PostHeader';
 
-const DinningDetail = ({ restaurant}:any) => {
+const DinningDetail = ({ restaurant }: any) => {
   const router = useRouter()
   return (
     <main>
-        <article className='prose mx-auto'>
-          {router.isFallback ? (
-            <div className='container'></div>
-          ) : (
-            <>
-              <PostHeader restaurant={restaurant} />
-              <PostBody restaurant={restaurant} />
-            </>
-          )}
-        </article>
+      <article className=''>
+        {router.isFallback ? (
+          <div className='container'></div>
+        ) : (
+          <>
+            <PostHeader restaurant={restaurant} />
+            <PostBody restaurant={restaurant} />
+          </>
+        )}
+      </article>
     </main>
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ params, preview = false }:any) => {
+export const getStaticProps: GetStaticProps = async ({ params, preview = false }: any) => {
   const cfClient = preview ? previewClient : client
 
   const { slug } = params
@@ -50,10 +50,10 @@ export const getStaticProps: GetStaticProps = async ({ params, preview = false }
   }
 }
 
-export const getStaticPaths: GetStaticPaths = async() => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const response = await client.getEntries({ content_type: 'diningPage' })
-  const paths = response.items.map((item:any)=> ({
-    params: { slug: item.fields.slug}
+  const paths = response.items.map((item: any) => ({
+    params: { slug: item.fields.slug }
   }))
 
   return {
