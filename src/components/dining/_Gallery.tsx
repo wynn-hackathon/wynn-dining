@@ -29,6 +29,7 @@ export const CarouselItems = ({ pic, i }: any) => {
   )
 }
 
+//Carousel
 const Gallery = ({ photos }: any) => {
   let titleArr: any = []
   const [slider, setSlider] = useState<any>(null);

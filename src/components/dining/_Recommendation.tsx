@@ -1,12 +1,13 @@
 import Image from "next/image"
 import Slider from 'react-slick'
+import Link from "next/link";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { _$, responsive, $all } from "@/lib/utils";
 import { useState } from "react";
 
 //Render Item of Carousel
-export const RecommendedItems = ({ pic }: any) => {
+export const RecommendedItems = ({ pic, i }: any) => {
   const { mobileBanner, name } = pic.fields
 
   return (
@@ -20,29 +21,41 @@ export const RecommendedItems = ({ pic }: any) => {
           className="card-img-top"
         />
         <div className="overLay"></div>
+        <div className="name" >{name}</div>
       </div>
     </div>
   )
 }
 
-export const Content = ({ title, description, i }: any) => {
+//Render Caption of Item of Carousel
+export const Content = ({ title, description, slug, externalLink, i }: any) => {
+  const url = externalLink ? externalLink : '/diningPage/' + slug;
   return (
     <div className="restaurant d-none" data-id={i}>
-      <p>{title}</p>
-      <p>{description}</p>
+      <div className="text">
+        <p className="name">{title}</p>
+        <p>{description}</p>
+      </div>
+      <div className="ctas">
+        <Link className="btn btn-secondary" href='/diningPage/'>View Menu</Link>
+        <Link className="btn btn-secondary" href={url}>View Detail</Link>
+      </div>
     </div>
   )
 }
 
+//Carousel
 const Recommendation = ({ list }: any) => {
-  let titleRecommendArr: any = []
-  let descriptionRecommendArr: any = []
+  const titleRecommendArr: any = [], descriptionRecommendArr: any = [], slugRecommendArr: any = [], externalLinkArr: any = [];
   const [slider, setSlider] = useState<any>(null);
   const next = () => { slider?.slickNext(); };
   const previous = () => { slider?.slickPrev(); };
 
   list.forEach((item: any, i: number) => {
-    titleRecommendArr.push(item.fields.name), descriptionRecommendArr.push(item.fields.shortDescription)
+    titleRecommendArr.push(item.fields.name);
+    descriptionRecommendArr.push(item.fields.shortDescription);
+    slugRecommendArr.push(item.fields.slug);
+    externalLinkArr.push(item.fields.externalLink);
   })
 
   var settings = {
@@ -55,6 +68,7 @@ const Recommendation = ({ list }: any) => {
     centerMode: true,
     arrows: false,
     draggable: true,
+    swipe: true,
 
     customPaging: function (i: number) {
       const count = list.length
@@ -84,7 +98,7 @@ const Recommendation = ({ list }: any) => {
           <span className="nextArrow arrow" onClick={next}><Image alt="Next" aria-label="Next" width="38" height="38" src="/images/icon-arrow.svg" /></span>
         </div>
         {titleRecommendArr.map((title: any, i: number) => (
-          <Content title={title} description={descriptionRecommendArr[i]} key={i} i={i} />
+          <Content title={title} description={descriptionRecommendArr[i]} slug={slugRecommendArr[i]} externalLink={externalLinkArr[i]} key={i} i={i} />
         ))}
       </div>
     </section>
