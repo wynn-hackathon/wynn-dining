@@ -58,9 +58,63 @@
   }
 }
 
-// Recommendation
-.recommendation {
-  background-color: $gray100;
-  padding: 50px 0px;
-  margin-bottom: 0px;
+// Promotion
+.promotion {
+  margin-left: 15px;
+  margin-right: 15px;
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+    border: 1px solid $gray300;
+
+  @include media-size(big-mobile){
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+}
+
+  .pic {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+
+    @include media-size(big-mobile){
+      width: 150px;
+      margin-bottom: 0px;
+    }
+
+    img{
+      height: auto;
+      max-width: 150px;
+    }
+  }
+
+  .content {
+    width: 100%;
+    text-align: center;
+
+    @include media-size(big-mobile){
+      width: calc(100% - 180px);
+      text-align: left;
+    }
+
+    p {
+      max-width: 700px;
+      @include media-size(big-mobile){
+        text-align: left;
+      }
+    }
+
+    h2 {
+      margin-bottom: 0px;
+      @include media-size(big-mobile){
+        text-align: left;
+      }
+      &:after {
+        display: none;
+      }
+    }
+  }
 }

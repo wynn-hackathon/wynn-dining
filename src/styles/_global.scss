@@ -25,7 +25,11 @@ a {
 }
 
 section {
-    margin-bottom: 90px;
+    margin-bottom: 69px;
+
+    @include media-size(big-mobile) {
+        margin-bottom: 90px;
+    }
 }
 
 // Heading
@@ -71,11 +75,10 @@ h3,
     @include cta-button;
 }
 
-.btn-primary {
+.btn-primary,a.btn-primary {
     background-color: var(--secondary-color);
     color: $white;
 
-    &:visited,
     &:active,
     &:first-child:active {
         background-color: var(--secondary-color);
@@ -85,14 +88,14 @@ h3,
     &:hover {
         background-color: var(--secondary-color-hover);
         border-color: var(--secondary-color-hover);
+        text-decoration: none;
     }
 }
 
-.btn-secondary {
+.btn-secondary,a.btn-secondary {
     background-color: $white;
     color: var(--secondary-color);
 
-    &:visited,
     &:active {
         background-color: $white !important;
         color: var(--secondary-color) !important;

@@ -72,6 +72,13 @@
 
 .dining-wrap:not(:last-child) {
   margin-bottom: 40px;
+
+  .col {
+    margin-bottom: 20px;
+    @include media-size(big-mobile){
+      margin-bottom: 0px;
+    }
+  }
 }
 
 .dining-wrap{
