@@ -19,6 +19,7 @@ const Dining = ({ diningDetail, diningPage }: IndexProps) => {
     setCategory([...new Set(category)])
   }, []);
 
+
   const handleFilter = ((target: any, cat: string) => {
     const arr = $all(".dining-wrap")
 
@@ -31,7 +32,7 @@ const Dining = ({ diningDetail, diningPage }: IndexProps) => {
 
   return (
     <main>
-      <DiningBanner diningPage={diningPage} />
+      <DiningBanner diningPage={diningPage} diningDetail={diningDetail} />
       <section>
         <div className="container">
           <div className='filter'>

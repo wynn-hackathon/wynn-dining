@@ -1,7 +1,8 @@
 
 import Image from 'next/image'
+import ReserveATable from './_ReserveATable'
 
-const DiningBanner = ({ diningPage }: any) => {
+const DiningBanner = ({ diningPage, diningDetail }: any) => {
   const { desktopBanner, mobileBanner, description, headline } = diningPage
 
   return (
@@ -23,6 +24,7 @@ const DiningBanner = ({ diningPage }: any) => {
             height={mobileBanner.fields.file.details.image.height}
           />
         </div>
+        <ReserveATable diningDetail={diningDetail} />
       </section>
       <section className='headline'>
         <div className="container">
