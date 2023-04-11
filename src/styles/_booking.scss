@@ -5,24 +5,24 @@
   box-shadow: 0px 3px 18px 3px rgba(119, 92, 61, 0.17);
   border-radius: 8px;
   width: 90%;
-  max-width: 940px;
+  max-width: 900px;
   background: $white;
 
   z-index: 10;
 
   .formWrap {
     width: calc(100% - 170px);
-    justify-content:flex-start;
+    justify-content: flex-start;
     align-items: stretch;
     align-content: center;
     display: flex;
 
-    >div{
+    >div {
       display: block;
       width: 70px;
       position: relative;
 
-      @include media-size(big-mobile){
+      @include media-size(big-mobile) {
         width: 150px;
       }
 
@@ -36,14 +36,15 @@
         background-color: $gray300;
       }
 
-       &:last-child {
+      &:last-child {
         border-right: none;
+
         &:after {
           background-color: transparent;
         }
-       }
+      }
 
-       .dropdown-menu {
+      .dropdown-menu {
         border-radius: 0px;
         width: 100%;
         max-width: 280px;
@@ -52,12 +53,13 @@
         overflow-y: auto;
 
         @include font-size($font-size-14);
-        li a{
-          &:hover{
+
+        li a {
+          &:hover {
             text-decoration: none;
           }
         }
-       }
+      }
 
       label {
         width: 100%;
@@ -77,18 +79,18 @@
         width: 90%;
         position: relative;
 
-         &:after {
+        &:after {
           position: absolute;
           right: 30px;
           top: 5px;
-         }
+        }
       }
     }
 
     .restaurants {
       width: calc(100% - 210px);
 
-      @include media-size(big-mobile){
+      @include media-size(big-mobile) {
         width: calc(100% - 450px);
       }
 
@@ -100,10 +102,42 @@
 
   .btnReserve {
     position: absolute;
-    top:0px;
+    top: 0px;
     right: 0px;
     height: 100%;
     width: 166px;
     border-radius: 0px 8px 8px 0px;
+  }
+
+  .react-datepicker-wrapper {
+    input {
+      @include font-size($font-size-14);
+      font-family: $font-avenir;
+      border: none !important;
+      padding: 0px;
+      cursor: pointer;
+      position: relative;
+
+      &:focus,
+      &:focus-visible {
+        outline: 0;
+      }
+    }
+  }
+
+  .calendar {
+    position: relative;
+      &:before {
+        content: "\F229";
+        font-family: "bootstrap-icons";
+        top: 18px;
+        right: 25px;
+        position: absolute;
+        z-index: 100;
+        transform: scale(0.6);
+      }
+  }
+  .react-datepicker__day--selected {
+    background-color: $brown700;
   }
 }

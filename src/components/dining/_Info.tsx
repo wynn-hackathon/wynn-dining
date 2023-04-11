@@ -1,14 +1,14 @@
 import RichText from "../RichText"
 
 const Info = ({ infoDining }: any) => {
-  const { dressCode, hourOfOperation, location, telephoneNumber } = infoDining.fields.info.fields
 
+  const { dressCode, hoursOfOperation, location, telephoneNumber } = infoDining.fields.info.fields
   return (
     <ul className="info-box" tabIndex={0}>
       <li key={0}>
         <span className="icon"><i className="bi bi-clock"></i></span>
         <span className="info-title">hour Of Operation</span>
-        {hourOfOperation}
+        {hoursOfOperation}
       </li>
       <li key={1}>
         <span className="icon"><i className="bi bi-person-check"></i></span>

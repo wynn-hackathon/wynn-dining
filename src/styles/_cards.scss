@@ -63,6 +63,8 @@
 
     li {
       margin-right: 15px;
+      cursor: pointer;
+
       &.active{
         text-decoration: underline;
       }
