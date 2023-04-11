@@ -25,6 +25,7 @@ const ModalReserveTable = ({ info }: any) => {
       name: all[0].value,
       email: all[1].value,
       phone: all[2].value,
+
     }
 
     setReserveInfo(newData);
@@ -42,8 +43,8 @@ const ModalReserveTable = ({ info }: any) => {
     <div className="modal fade" id="reserveTableModal" tabIndex={-1} aria-labelledby="Reserve Table" aria-hidden="true">
       <div className="modal-dialog">
         <div className="modal-content">
-          <button type="button" data-bs-dismiss="modal" aria-label="Close" className="btn-close" onClick={handleClose}><i className="bi bi-x-circle-fill"></i></button>
           <div className="modal-body">
+            <button type="button" data-bs-dismiss="modal" aria-label="Close" className="btn-close" onClick={handleClose}><i class="bi bi-x-lg"></i></button>
             <div className="reserveTable">
               <h2><span className="page-title">Reservation</span>{restaurant}</h2>
               <div className="infoTable">

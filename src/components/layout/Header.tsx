@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 const Header = () => {
   const router = useRouter();
   useEffect(() => {
+
     window.addEventListener("scroll", (e) => {
       let header, height;
       isTablet() ? header = _$("#myHeader") : header = _$("#myHeader .mainNav");
@@ -15,7 +16,6 @@ const Header = () => {
       sticky(header, height, "sticky");
       if (isTablet() && _$(".menu-open-m")) { (_$("main").getBoundingClientRect().top < 300) && _$('.navbar-toggler').click(); }
     });
-
   })
 
   const closeMobileMenu = () => {
@@ -50,7 +50,7 @@ const Header = () => {
                 <Link className={router.pathname == "/wynn-rewards" ? "nav-link" : "nav-link"} href="/wynn-rewards">Wynn Rewards</Link>
               </li>
               <li className="nav-item">
-                <Link className={router.pathname == "/diningPage" ? "nav-link active" : "nav-link"} href="/diningPage">Dining</Link>
+                <Link className={router.pathname == "/diningPage" || '/diningPage/[slug]' ? "nav-link active" : "nav-link"} href="/diningPage">Dining</Link>
               </li>
               <li className="nav-item">
                 <Link className={router.pathname == "/casino" ? "nav-link active" : "nav-link"} href="/casino">Casino</Link>

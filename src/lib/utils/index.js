@@ -8,7 +8,7 @@ export function formatDate(dateString, options) {
 export const $all = (selector) => document.querySelectorAll(selector);
 export const $id = (selector) => document.getElementById(selector);
 export const isDesktop = () => window.matchMedia("(min-width: 577px)").matches;
-export const isTablet = () => window.matchMedia("(max-width: 991px)").matches;
+export const isTablet = () => window.matchMedia("(max-width: 1024px)").matches;
 export const isMobile = () => window.matchMedia("(max-width: 576px)").matches;
 export const _$ = selector => typeof document !== 'undefined' && document.querySelector(selector);
 

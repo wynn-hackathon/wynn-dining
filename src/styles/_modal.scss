@@ -1,10 +1,22 @@
 #reserveTableModal {
   .modal-body{
     margin: 30px auto;
-    padding: 50px;
+    padding: 15px;
     background-color: $white;
-    min-width: 550px;
+    min-width: 0px;
+    width: 100%;
+    margin-top:100px;
+    @include media-size(big-mobile) {
+      width: 550px;
+      padding: 50px;
+      margin-top:70px;
+    }
   }
+  .btn-close {
+    top: 20px;
+    right: 20px;
+  }
+
   .infoTable p{
     line-height: 170%;
     margin-bottom: 20px;
