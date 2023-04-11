@@ -1,0 +1,12 @@
+#reserveTableModal {
+  .modal-body{
+    margin: 30px auto;
+    padding: 50px;
+    background-color: $white;
+    min-width: 500px;
+  }
+  .infoTable {
+    padding-bottom: 20px;
+    border-bottom: 1px solid $gray200;
+  }
+}

@@ -4,8 +4,8 @@ import Info from './_Info';
 import TwoCols from './_2cols';
 import Testimonial from './_testimonial';
 import FAQs from './_FAQs';
-import Modal from './_modal';
 import Recommendation from './_Recommendation'
+import Modal from './_modal';
 
 const PostBody = ({ restaurant }: any) => {
   const { content, gallery, specialMeal, testimonial, faqList, recommendationRestaurants } = restaurant.fields;

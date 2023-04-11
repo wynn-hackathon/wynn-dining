@@ -1,6 +1,6 @@
 
 import Image from 'next/image'
-import ReserveATable from './_ReserveATable'
+import ReserveATable from './ReserveATable'
 
 const DiningBanner = ({ diningPage, diningDetail }: any) => {
   const { desktopBanner, mobileBanner, description, headline } = diningPage

@@ -125,7 +125,7 @@
     }
   }
 
-  .calendar {
+  .date {
     position: relative;
       &:before {
         content: "\F229";
@@ -137,6 +137,7 @@
         transform: scale(0.6);
       }
   }
+
   .react-datepicker__day--selected {
     background-color: $brown700;
   }
