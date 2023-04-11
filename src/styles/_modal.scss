@@ -3,10 +3,29 @@
     margin: 30px auto;
     padding: 50px;
     background-color: $white;
-    min-width: 500px;
+    min-width: 550px;
   }
-  .infoTable {
-    padding-bottom: 20px;
-    border-bottom: 1px solid $gray200;
+  .infoTable p{
+    line-height: 170%;
+    margin-bottom: 20px;
+    color: $gray500;
+    span{
+      font-family: $font-avenir;
+    }
+  }
+  .yourInfo {
+      background-color: $gray100;
+      padding: 20px;
+  }
+
+  .thankyou {
+    @include font-size($font-size-18);
+    padding: 40px auto;
+    text-align: center;
+    font-family: $font-avenir;
+
   }
 }
+
+
+
