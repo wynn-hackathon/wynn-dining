@@ -7,6 +7,10 @@ import Promotion from '@/components/dining/_Promotion';
 import { useState, useEffect } from 'react';
 import { _$, $all } from '@/lib/utils';
 
+const contentfull1 = require('contentful-management')
+
+
+
 type IndexProps = {
   diningDetail: DiningType[];
   diningPage: DiningType[];
@@ -70,5 +74,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
   }
 }
+
 
 export default Dining
