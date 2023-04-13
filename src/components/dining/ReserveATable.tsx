@@ -97,7 +97,7 @@ const ReserveATable = ({ diningDetail }: any) => {
               <input className="data" name="time" type="hidden" value={time} />
             </div>
           </div>
-          <button className="btn btn-primary btnReserve" onClick={handleReserve} data-bs-toggle="modal" data-bs-target="#reserveTableModal" >Reserve a Table</button>
+          <button className="btn btn-primary btnReserve" onClick={handleReserve} data-bs-toggle="modal" data-bs-target=".reserveTableModal" >Reserve a Table</button>
         </form>
       </div >
       <ModalReserveTable info={reserveInfo} />

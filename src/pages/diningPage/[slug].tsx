@@ -9,16 +9,14 @@ const DinningDetail = ({ restaurant, menuList }: any) => {
   const router = useRouter()
   return (
     <main>
-      <article className=''>
-        {router.isFallback ? (
-          <div className='container'></div>
-        ) : (
-          <>
-            <PostHeader restaurant={restaurant} menuList={menuList} />
-            <PostBody restaurant={restaurant} />
-          </>
-        )}
-      </article>
+      {router.isFallback ? (
+        <div className='container'></div>
+      ) : (
+        <>
+          <PostHeader restaurant={restaurant} menuList={menuList} />
+          <PostBody restaurant={restaurant} />
+        </>
+      )}
     </main>
   )
 }

@@ -29,8 +29,8 @@ const PostBody = ({ restaurant }: any) => {
       {specialMeal && <TwoCols specialMeal={restaurant} />}
       {testimonial && <Testimonial testimonial={restaurant} />}
       {faqList && <FAQs faq={restaurant} />}
-      {gallery && <Modal photos={restaurant} />}
       {recommendationRestaurants && <Recommendation list={recommendationRestaurants} />}
+      {gallery && <Modal photos={restaurant} />}
     </>
   )
 }

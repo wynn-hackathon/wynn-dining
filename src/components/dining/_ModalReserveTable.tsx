@@ -39,7 +39,7 @@ const ModalReserveTable = ({ info }: any) => {
 
 
   return (
-    <div className="modal fade fullView" id="reserveTableModal" tabIndex={-1} aria-labelledby="Reserve Table" aria-hidden="true">
+    <div className="modal fade fullView reserveTableModal" id="reserveTableModal" tabIndex={-1} aria-labelledby="Reserve Table" aria-hidden="true">
       <div className="modal-dialog">
         <div className="modal-content">
           <button type="button" data-bs-dismiss="modal" aria-label="Close" className="btn-close" ><i className="bi bi-x-lg"></i></button>

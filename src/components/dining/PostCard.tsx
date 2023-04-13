@@ -25,7 +25,7 @@ const PostCard = ({ restaurant, menuList }: any) => {
           </div>
         </div>
         <div className="ctas">
-          {menu && <div><Link href={`#`} aria-label="View Menu" data-bs-toggle="modal" data-bs-target="#menuModal" onClick={handleSticky}>View Menu</Link></div>}
+          {menu && <div><Link href={`#`} aria-label="View Menu" data-bs-toggle="modal" data-bs-target=".menuModal" onClick={handleSticky}>View Menu</Link></div>}
           <div><Link href={`/diningPage/${slug}`} aria-label="View Detail" className='btn btn-secondary'>View Detail</Link></div>
 
         </div>

@@ -2,20 +2,16 @@ import Image from "next/image"
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { _$, responsive, $all } from "@/lib/utils";
+import { _$, responsive, $all, handleSticky } from "@/lib/utils";
 import { useState } from "react";
 
 
 //Render Item of Carousel
 export const CarouselItems = ({ pic, i }: any) => {
-  const handleCLick = () => {
-    const element = _$('.navbar')
-    element?.classList.remove("sticky", "animated", "fadeInDown");
-  }
 
   return (
     <div className="item">
-      <div className="pic-wrap" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={handleCLick}>
+      <div className="pic-wrap" data-bs-toggle="modal" data-bs-target=".galleryModal" onClick={handleSticky}>
         <Image
           alt={`Cover Image for ${pic.fields.title}`}
           src={'https:' + pic.fields.picture[0].fields.file.url}

@@ -36,7 +36,7 @@ export const Content = ({ title, description, slug, externalLink, i }: any) => {
         <p>{description}</p>
       </div>
       <div className="ctas">
-        <button className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#menuModal" onClick={handleSticky}>View Menu</button>
+        <button className="btn btn-secondary" data-bs-toggle="modal" data-bs-target=".menuModal" onClick={handleSticky}>View Menu</button>
         <Link className="btn btn-secondary" href={url}>View Detail</Link>
       </div>
     </div>

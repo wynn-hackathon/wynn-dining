@@ -42,7 +42,7 @@ const PostHeader = ({ restaurant, menuList }: any) => {
               </h1>
               <div className="copy-wrap" tabIndex={0}>{shortDescription}</div>
               <div className='ctas'>
-                {menu && <button className='btn btn-secondary' data-bs-toggle="modal" data-bs-target="#menuModal" onClick={handleSticky}>View Menu</button>}
+                {menu && <button className='btn btn-secondary' data-bs-toggle="modal" data-bs-target=".menuModal" onClick={handleSticky}>View Menu</button>}
                 <button className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#reserveTableModal" onClick={handleSticky}>Reserve A Table</button>
               </div>
             </div>

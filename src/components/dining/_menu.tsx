@@ -26,7 +26,7 @@ const Menu = ({ list, menuList }: any) => {
   const categoryArr = ["Starters", "Platters", "Main", "Dessert"]
 
   return (
-    <div className="modal fade fullView" id="menuModal" tabIndex={-1} aria-labelledby="Reserve Table" aria-hidden="true">
+    <div className="modal fade fullView menuModal" id="menuModal" tabIndex={-1} aria-labelledby="Reserve Table" aria-hidden="true">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-body">
