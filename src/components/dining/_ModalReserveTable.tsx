@@ -65,7 +65,7 @@ const ModalReserveTable = ({ info }: any) => {
                         <input type="text" className="form-control userData" id="phone" placeholder="Phone" />
                       </div>
                     </div>
-                    <div className="text-center"><button type="submit" className="btn btn-primary" onClick={handleReserve}>Submit</button></div>
+                    <div className="text-center"><button type="submit" className="btn btn-primary mt-3" onClick={handleReserve}>Submit</button></div>
                   </form>
                 </div>
               </div>

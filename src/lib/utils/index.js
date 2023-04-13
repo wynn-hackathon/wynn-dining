@@ -14,6 +14,14 @@ export const _$ = selector => typeof document !== 'undefined' && document.queryS
 
 export const sticky = (element, height, className) => window.pageYOffset > height ? element?.classList.add("sticky", "animated", "fadeInDown") : element?.classList.remove("sticky", "animated", "fadeInDown");
 
+
+
+export const handleSticky = (e) => {
+  e.preventDefault();
+  _$(".navbar").classList.remove('sticky');
+}
+
+
 export const responsive = [
   {
     breakpoint: 1530,

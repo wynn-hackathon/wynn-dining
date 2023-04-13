@@ -3,7 +3,7 @@ import Slider from 'react-slick'
 import Link from "next/link";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { _$, responsive, $all } from "@/lib/utils";
+import { _$, responsive, $all, handleSticky } from "@/lib/utils";
 import { useState } from "react";
 
 //Render Item of Carousel
@@ -36,7 +36,7 @@ export const Content = ({ title, description, slug, externalLink, i }: any) => {
         <p>{description}</p>
       </div>
       <div className="ctas">
-        <Link className="btn btn-secondary" href='/diningPage/'>View Menu</Link>
+        <button className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#menuModal" onClick={handleSticky}>View Menu</button>
         <Link className="btn btn-secondary" href={url}>View Detail</Link>
       </div>
     </div>
@@ -61,7 +61,7 @@ const Recommendation = ({ list }: any) => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
     centerMode: true,
@@ -80,7 +80,20 @@ const Recommendation = ({ list }: any) => {
       $all('.restaurant').forEach((item) => item.classList.add('d-none'))
       _$('.restaurant[data-id="' + index + '"]').classList.remove('d-none')
     },
-    responsive: responsive,
+    responsive: [
+      {
+        breakpoint: 1530,
+        settings: { slidesToShow: 3, }
+      },
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 3, }
+      },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 1, }
+      }
+    ],
   };
 
   return (

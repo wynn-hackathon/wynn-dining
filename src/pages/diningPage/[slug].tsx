@@ -32,6 +32,7 @@ export const getStaticProps: GetStaticProps = async ({ params, preview = false }
     'fields.slug': slug
   })
 
+
   const response3 = await client.getEntries({ content_type: 'menuPage' })
 
   if (!response?.items?.length) {

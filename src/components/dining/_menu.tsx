@@ -4,7 +4,6 @@ import Link from "next/link"
 
 export const MenuItem = ({ item }: any) => {
   const { name, description } = item.fields
-  console.log(item.fields)
 
   return (
     <div className="">
@@ -16,7 +15,6 @@ export const MenuItem = ({ item }: any) => {
 
 const Menu = ({ list, menuList }: any) => {
   const { logo, category } = list.fields
-  console.log(category)
 
   const menuArr: any = []
   menuList.forEach((item: any, i: number) => {
@@ -43,8 +41,9 @@ const Menu = ({ list, menuList }: any) => {
                     height={logo.fields.file.details.image.height}
                     className="mg-fluid"
                   />
+
                 </div>
-                <div className="menuLogo">MENU</div>
+                <p className="chef">By Executive Pastry Chef Kimberly Beatrix</p>
               </div>
               <div className="list">
                 <div className="row">

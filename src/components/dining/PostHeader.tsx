@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import ModalReserveTable from './_ModalReserveTable';
 import Menu from './_menu'
-import { _$ } from '@/lib/utils';
+import { _$, handleSticky } from '@/lib/utils';
 
 const PostHeader = ({ restaurant, menuList }: any) => {
   const { name, desktopBanner, mobileBanner, subTitle, shortDescription, menu } = restaurant.fields
@@ -11,11 +11,6 @@ const PostHeader = ({ restaurant, menuList }: any) => {
     startDate: '04/12/2023',
     people: "2 Guests",
     time: "5:00 PM"
-  }
-
-  const handleCLick = (e: any) => {
-    e.preventDefault();
-    _$(".navbar").classList.remove('sticky');
   }
 
 
@@ -47,8 +42,8 @@ const PostHeader = ({ restaurant, menuList }: any) => {
               </h1>
               <div className="copy-wrap" tabIndex={0}>{shortDescription}</div>
               <div className='ctas'>
-                <button className='btn btn-secondary' data-bs-toggle="modal" data-bs-target="#menuModal" onClick={handleCLick}>View Menu</button>
-                <button className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#reserveTableModal">Reserve A Table</button>
+                {menu && <button className='btn btn-secondary' data-bs-toggle="modal" data-bs-target="#menuModal" onClick={handleSticky}>View Menu</button>}
+                <button className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#reserveTableModal" onClick={handleSticky}>Reserve A Table</button>
               </div>
             </div>
           </div>

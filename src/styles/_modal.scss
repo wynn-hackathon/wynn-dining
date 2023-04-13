@@ -5,7 +5,7 @@
     margin: 0px;
     max-width: 100%;
     min-height: 100vh;
-    background-color: $white;
+    background-color: #FFF8EB;
     z-index: 999999;
   }
   .modal-body{
@@ -50,8 +50,16 @@
   }
 
   .yourInfo {
-      background-color: $gray100;
-      padding: 20px;
+      padding: 0px 0px 30px 0px;
+      position: relative;
+      .form-control {
+        border-radius: 0px;
+        background-color: transparent !important;
+        border-color:#bca68d;
+        &:focus {
+          box-shadow: 0 0 0 0.25rem rgba(13,110,253,0)
+        }
+      }
   }
 
   .thankyou {
@@ -64,21 +72,31 @@
   .container{
     max-width: 700px !important;
     margin: 0px auto;
+    padding-bottom: 50px;
+        background: url('/images/line_break.svg') no-repeat center bottom;
+        background-size: 150px;
 
     .header {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      background: url('/images/line_break.svg') no-repeat center bottom;
+      background-size: 150px;
 
       .logo {
-        height: 50px;
 
+        text-align: center;
         img{
           width: auto;
           height: 50px;
         }
+      }
+
+      .chef {
+        text-align: center;
+        font-style: italic;
+        margin-top: 10px;
+        @include font-size($font-size-14);
       }
 
       .menuLogo{
@@ -106,17 +124,18 @@
     }
     .list{
       padding: 0px 10px;
+
       @include media-size(big-mobile){
         padding: 0px 30px;
 
         .col {
           margin-bottom: 20px;
+          padding-bottom: 0px;
         }
       }
 
       p{
         color: $gray500;
-       // padding-right: 30px;
         @include font-size($font-size-14)
       }
 

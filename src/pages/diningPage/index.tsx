@@ -6,13 +6,9 @@ import { DiningType } from '@/types';
 import Promotion from '@/components/dining/_Promotion';
 import { useState, useEffect } from 'react';
 import { _$, $all } from '@/lib/utils';
+import Menu from '@/components/dining/_menu';
 
-type IndexProps = {
-  diningDetail: DiningType[];
-  diningPage: DiningType[];
-};
-
-const Dining = ({ diningDetail, diningPage }: IndexProps) => {
+const Dining = ({ diningDetail, diningPage, menuList }: any) => {
   const [category, setCategory] = useState([]);
   useEffect(() => {
     diningDetail.map((restaurant: any) => (category.push(restaurant.fields.category)))
@@ -33,6 +29,7 @@ const Dining = ({ diningDetail, diningPage }: IndexProps) => {
   return (
     <main>
       <DiningBanner diningPage={diningPage} diningDetail={diningDetail} />
+      {diningPage.promotion && <Promotion promotion={diningPage} />}
       <section>
         <div className="container">
           <div className='filter'>
@@ -46,14 +43,13 @@ const Dining = ({ diningDetail, diningPage }: IndexProps) => {
               <h2 className="h2 text-center" tabIndex={0}>{cat}</h2>
               <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 listCards">
                 {diningDetail.map((restaurant: any, i: any) => (
-                  (cat == restaurant.fields.category) && <PostCard key={restaurant.fields.slug} restaurant={restaurant} />
+                  (cat == restaurant.fields.category) && <PostCard key={restaurant.fields.slug} restaurant={restaurant} menuList={menuList} />
                 ))}
               </div>
             </div>
           ))}
         </div>
       </section>
-      <Promotion promotion={diningPage} />
     </main>
   )
 }
@@ -61,11 +57,13 @@ const Dining = ({ diningDetail, diningPage }: IndexProps) => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const response1 = await client.getEntries({ content_type: 'diningListPage' })
   const response2 = await client.getEntries({ content_type: 'diningPage' })
+  const response3 = await client.getEntries({ content_type: 'menuPage' })
 
   return {
     props: {
       diningPage: response1.items[0].fields,
       diningDetail: response2.items,
+      menuList: response3?.items || '',
       revalidate: 60,
     }
   }
