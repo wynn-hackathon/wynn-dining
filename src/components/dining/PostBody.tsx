@@ -4,7 +4,7 @@ import Info from './_Info';
 import TwoCols from './_2cols';
 import Testimonial from './_testimonial';
 import FAQs from './_FAQs';
-import Recommendation from './_Recommendation'
+import Recommendation from './_Recommendation';
 import Modal from './_modal';
 
 const PostBody = ({ restaurant }: any) => {

@@ -1,30 +1,54 @@
-#reserveTableModal {
+
+.fullView {
+  .modal-dialog {
+    width: 100%;
+    margin: 0px;
+    max-width: 100%;
+    min-height: 100vh;
+    background-color: $white;
+    z-index: 999999;
+  }
   .modal-body{
     margin: 30px auto;
     padding: 15px;
-    background-color: $white;
     min-width: 0px;
     width: 100%;
     margin-top:100px;
+
     @include media-size(big-mobile) {
-      width: 550px;
+      max-width: 100%;
       padding: 50px;
-      margin-top:70px;
+      margin-top:0px;
     }
   }
   .btn-close {
     top: 20px;
     right: 20px;
   }
+  .modal-content{
+    border: none;
+  }
 
-  .infoTable p{
-    line-height: 170%;
-    margin-bottom: 20px;
-    color: $gray500;
-    span{
-      font-family: $font-avenir;
+  .infoDetail h3,.infoTable  h3 {
+    text-transform: uppercase;
+    @include font-size($font-size-14);
+    font-family: $font-avenir-bold;
+    display: inline-block;
+    padding: 2px 20px 2px 0px;
+    color:$brown700;
+  }
+
+  .infoTable{
+    p {
+      line-height: 170%;
+      margin-bottom: 20px;
+      color: $gray500;
+      span{
+        font-family: $font-avenir;
+      }
     }
   }
+
   .yourInfo {
       background-color: $gray100;
       padding: 20px;
@@ -37,7 +61,73 @@
     font-family: $font-avenir;
 
   }
+  .container{
+    max-width: 700px !important;
+    margin: 0px auto;
+
+    .header {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px;
+
+      .logo {
+        height: 50px;
+
+        img{
+          width: auto;
+          height: 50px;
+        }
+      }
+
+      .menuLogo{
+        width: 65px;
+        height: 65px;
+        background-color: $brown700;
+        color: $white;
+        padding: 10px;
+        letter-spacing: 10px;
+        word-wrap: break-word;
+        text-align: center;
+        font-family: $font-avenir;
+        margin-right: 20px;
+      }
+    }
+
+    h3{
+      text-transform: uppercase;
+      @include font-size($font-size-14);
+      font-family: $font-avenir-bold;
+      display: inline-block;
+      padding: 2px 20px 2px 0px;
+      color:$brown700;;
+      border-bottom: 1px solid $brown700;
+    }
+    .list{
+      padding: 0px 10px;
+      @include media-size(big-mobile){
+        padding: 0px 30px;
+
+        .col {
+          margin-bottom: 20px;
+        }
+      }
+
+      p{
+        color: $gray500;
+       // padding-right: 30px;
+        @include font-size($font-size-14)
+      }
+
+      .name{
+        font-family: $font-bigCaslon;
+        margin-bottom: 0px;
+        color: $black;
+        @include font-size($font-size-18)
+      }
+
+
+    }
+  }
 }
-
-
-

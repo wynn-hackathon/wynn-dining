@@ -26,6 +26,7 @@
     background-color: $gray100;
     --bs-navbar-nav-link-padding-x: 1.15rem;
     padding: 0px;
+    z-index: 9;
 
     @include media-size(big-mobile) {
         height: auto;

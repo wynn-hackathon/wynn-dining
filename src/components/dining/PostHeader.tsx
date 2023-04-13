@@ -1,15 +1,21 @@
 
 import Image from 'next/image'
-import ModalReserveTable from './_ModalReserveTable'
+import ModalReserveTable from './_ModalReserveTable';
+import Menu from './_menu'
+import { _$ } from '@/lib/utils';
 
-const PostHeader = ({ restaurant }: any) => {
-  const { name, desktopBanner, mobileBanner, subTitle, shortDescription } = restaurant.fields
-
+const PostHeader = ({ restaurant, menuList }: any) => {
+  const { name, desktopBanner, mobileBanner, subTitle, shortDescription, menu } = restaurant.fields
   const reserveInfo = {
     restaurant: name,
     startDate: '04/12/2023',
     people: "2 Guests",
     time: "5:00 PM"
+  }
+
+  const handleCLick = (e: any) => {
+    e.preventDefault();
+    _$(".navbar").classList.remove('sticky');
   }
 
 
@@ -41,7 +47,7 @@ const PostHeader = ({ restaurant }: any) => {
               </h1>
               <div className="copy-wrap" tabIndex={0}>{shortDescription}</div>
               <div className='ctas'>
-                <button className='btn btn-secondary'>View Menu</button>
+                <button className='btn btn-secondary' data-bs-toggle="modal" data-bs-target="#menuModal" onClick={handleCLick}>View Menu</button>
                 <button className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#reserveTableModal">Reserve A Table</button>
               </div>
             </div>
@@ -49,6 +55,7 @@ const PostHeader = ({ restaurant }: any) => {
         </div>
       </section>
       <ModalReserveTable info={reserveInfo} />
+      {menu && <Menu list={menu} menuList={menuList} />}
     </>
   )
 }

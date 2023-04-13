@@ -15,8 +15,6 @@ const ModalReserveTable = ({ info }: any) => {
   })
 
   const handleReserve = async (e: any) => {
-    const endpoint = 'https://cdn.contentful.com/spaces/osa9szwur3cb/environments/master/entries/4dV4l3i1cRm0i0edG1xLVP?access_token=maEy9u6BFyYAWn_QrHL4pvZi6zEMZGLCD_ICiCCq9nU';
-
     e.preventDefault();
     const all = $all('.userData');
     const newData = {
@@ -32,16 +30,6 @@ const ModalReserveTable = ({ info }: any) => {
     setReserveInfo(newData);
     _$('.thankyou').classList.remove('d-none');
     _$('.infoDetail').classList.add('d-none');
-
-    fetch(endpoint, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newData),
-    })
-      .then((response) => { console.log(response) });
   };
 
   const handleClose = () => {
@@ -51,12 +39,12 @@ const ModalReserveTable = ({ info }: any) => {
 
 
   return (
-    <div className="modal fade" id="reserveTableModal" tabIndex={-1} aria-labelledby="Reserve Table" aria-hidden="true">
+    <div className="modal fade fullView" id="reserveTableModal" tabIndex={-1} aria-labelledby="Reserve Table" aria-hidden="true">
       <div className="modal-dialog">
         <div className="modal-content">
-          <div className="modal-body">
-            <button type="button" data-bs-dismiss="modal" aria-label="Close" className="btn-close" onClick={handleClose}><i className="bi bi-x-lg"></i></button>
-            <div className="reserveTable">
+          <button type="button" data-bs-dismiss="modal" aria-label="Close" className="btn-close" ><i className="bi bi-x-lg"></i></button>
+          <div className="modal-body ">
+            <div className="w550">
               <h2><span className="page-title">Reservation</span>{restaurant}</h2>
               <div className="infoTable">
                 <h3>Your Table</h3>

@@ -2,7 +2,7 @@ import React from 'react'
 import SubHeader from './SubHeader'
 import Link from 'next/link'
 import { useEffect } from 'react'
-import { isTablet, isDesktop, sticky, _$ } from '@/lib/utils'
+import { isTablet, isDesktop, sticky, _$, isMobile } from '@/lib/utils'
 import { useRouter } from 'next/router';
 
 const Header = () => {
@@ -11,8 +11,8 @@ const Header = () => {
 
     window.addEventListener("scroll", (e) => {
       let header, height;
-      isTablet() ? header = _$("#myHeader") : header = _$("#myHeader .mainNav");
-      isTablet() ? height = 180 : height = 220;
+      isMobile() ? header = _$("#myHeader") : header = _$("#myHeader .mainNav");
+      isMobile() ? height = 180 : height = 220;
       sticky(header, height, "sticky");
       if (isTablet() && _$(".menu-open-m")) { (_$("main").getBoundingClientRect().top < 300) && _$('.navbar-toggler').click(); }
     });

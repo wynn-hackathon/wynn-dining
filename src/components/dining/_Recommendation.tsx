@@ -9,7 +9,6 @@ import { useState } from "react";
 //Render Item of Carousel
 export const RecommendedItems = ({ pic, i }: any) => {
   const { mobileBanner, name } = pic.fields
-
   return (
     <div className="item">
       <div className="pic-wrap">

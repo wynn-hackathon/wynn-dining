@@ -5,7 +5,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import PostBody from '@/components/dining/PostBody';
 import PostHeader from '@/components/dining/PostHeader';
 
-const DinningDetail = ({ restaurant }: any) => {
+const DinningDetail = ({ restaurant, menuList }: any) => {
   const router = useRouter()
   return (
     <main>
@@ -14,7 +14,7 @@ const DinningDetail = ({ restaurant }: any) => {
           <div className='container'></div>
         ) : (
           <>
-            <PostHeader restaurant={restaurant} />
+            <PostHeader restaurant={restaurant} menuList={menuList} />
             <PostBody restaurant={restaurant} />
           </>
         )}
@@ -32,6 +32,8 @@ export const getStaticProps: GetStaticProps = async ({ params, preview = false }
     'fields.slug': slug
   })
 
+  const response3 = await client.getEntries({ content_type: 'menuPage' })
+
   if (!response?.items?.length) {
     return {
       redirect: {
@@ -44,6 +46,7 @@ export const getStaticProps: GetStaticProps = async ({ params, preview = false }
   return {
     props: {
       restaurant: response?.items?.[0],
+      menuList: response3?.items,
       preview,
       revalidate: 60
     }
@@ -52,6 +55,7 @@ export const getStaticProps: GetStaticProps = async ({ params, preview = false }
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await client.getEntries({ content_type: 'diningPage' })
+
   const paths = response.items.map((item: any) => ({
     params: { slug: item.fields.slug }
   }))
