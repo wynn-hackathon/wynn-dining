@@ -15,7 +15,11 @@
 
         img {
             height: auto;
-            width: 133px;
+            width: 70px;
+
+            @include media-size(big-mobile){
+                width: 100px;
+            }
 
         }
     }

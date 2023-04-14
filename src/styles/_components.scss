@@ -122,3 +122,144 @@
     }
   }
 }
+
+.landingPage{
+  margin: 50px auto;
+  max-width: 750px;
+
+  img{
+   max-width: 100%;
+   height: auto;
+  }
+
+  .developerTeam {
+    margin: 50px auto 90px auto;
+    background: url('/images/line_break.svg') no-repeat center top;
+    background-size: 150px;
+    padding-top: 90px;
+    text-align: center;
+
+    li {
+      list-style: none;
+      display: block;
+      padding: 0px 10px;
+      width: 200px;
+      margin: 0px auto;
+      text-align: left;
+
+      @include media-size(big-mobile){
+        display: inline-block;
+        text-align: center;
+        width: auto;
+      }
+    }
+
+     span{
+      background-color: $brown700;
+      color: $white;
+      padding: 0px 3px;
+      margin-right: 2px;
+      font-family: $font-avenir-bold;
+     }
+  }
+
+  &.aboutProject{
+
+    .nextLogo {
+      text-align: center;
+    }
+
+
+    h3{
+      text-transform: uppercase;
+      @include font-size($font-size-14);
+      color: $brown700;
+    }
+
+    .tech {
+      text-align: center;
+      img {
+        margin-bottom: 30px;
+        text-align: center;
+
+      }
+    }
+
+    .about {
+      background-color: $brown300;
+      padding: 40px;
+      margin: 90px auto;
+
+    }
+
+    .logo-amv {
+      margin-top: 30px;
+      img {
+        width: 150px;
+        height: auto;
+      }
+    }
+  }
+
+   &.team{
+
+    .developerTeam {
+      background: none;
+      padding-top: 0px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      display: none;
+      @include media-size(big-mobile){
+        display: block;
+      }
+
+    }
+    .developer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 700px;
+      margin: 30px auto;
+      flex-direction:column;
+
+      @include media-size(big-mobile){
+        margin: 70px auto;
+        flex-direction:row;
+
+      }
+
+      .profile {
+        width:200px;
+        img {
+          width: 200px;
+          filter: grayscale(130%);
+          height: auto;
+        }
+      }
+
+      .info {
+        width: calc(100% );
+        color: $gray400;
+        text-align: center;
+        @include media-size(big-mobile){
+          width: calc(100% - 220px);
+          text-align: left;
+
+        }
+        .name{
+          font-family: $--bg-color;
+          @include font-size($font-size-24);
+          color:$brown700;
+          margin-bottom: 10px;
+        }
+        .title {
+          text-transform: uppercase;
+          font-family: $font-avenir-bold;
+          margin-bottom: 10px;
+          color: $black;
+        }
+      }
+    }
+   }
+}
+

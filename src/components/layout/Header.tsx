@@ -41,19 +41,17 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className={router.pathname == "/rooms-and-suites" || router.pathname == '/rooms-and-suites/[slug]' ? "nav-link active" : "nav-link"} href="/events">Room & Suites</Link>
+                <Link className={router.pathname == "/diningPage" || '/diningPage/[slug]' ? "nav-link" : "nav-link"} href="/diningPage">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className={router.pathname == "/wynn-rewards" ? "nav-link" : "nav-link"} href="/wynn-rewards">Wynn Rewards</Link>
+                <Link className={router.pathname == "/about_our_hackathon" ? "nav-link active" : "nav-link"} href="/about_our_hackathon">About Project</Link>
               </li>
               <li className="nav-item">
-                <Link className={router.pathname == "/diningPage" || '/diningPage/[slug]' ? "nav-link active" : "nav-link"} href="/diningPage">Dining</Link>
+                <Link className={router.pathname == "/data_flow" ? "nav-link" : "nav-link"} href="/data_flow">Data Flow</Link>
               </li>
+
               <li className="nav-item">
-                <Link className={router.pathname == "/casino" ? "nav-link active" : "nav-link"} href="/casino">Casino</Link>
-              </li>
-              <li className="nav-item">
-                <Link className={router.pathname == "/shops" ? "nav-link active" : "nav-link"} href="/shops">Shops</Link>
+                <Link className={router.pathname == "/our_team" ? "nav-link active" : "nav-link"} href="/our_team">Our Team</Link>
               </li>
             </ul>
           </div>

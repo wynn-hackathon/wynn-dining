@@ -1,7 +1,7 @@
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import { useState, useEffect } from "react";
-import { $all } from "@/lib/utils";
+import { $all, handleSticky } from "@/lib/utils";
 import ModalReserveTable from "./_ModalReserveTable";
 
 const ReserveATable = ({ diningDetail }: any) => {
@@ -59,6 +59,7 @@ const ReserveATable = ({ diningDetail }: any) => {
     }
 
     setReserveInfo(newData);
+    handleSticky(e)
   };
 
 
