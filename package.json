@@ -11,6 +11,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.16.3",
     "@contentful/rich-text-types": "^16.0.3",
+    "@headlessui/react": "^1.7.14",
     "@nextui-org/react": "^1.0.0-beta.12",
     "@types/node": "18.15.11",
     "@types/react": "18.0.32",
@@ -23,6 +24,7 @@
     "eslint-config-next": "13.2.4",
     "next": "13.2.4",
     "react": "18.2.0",
+    "react-bootstrap": "^2.7.3",
     "react-datepicker": "^4.11.0",
     "react-dom": "18.2.0",
     "react-slick": "^0.29.0",

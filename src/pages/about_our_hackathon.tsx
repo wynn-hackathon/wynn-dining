@@ -32,7 +32,7 @@ export default function AboutOurHackathon(props: any) {
                   <li>Intro information </li>
                   <li>Promotions (optional)</li>
                   <li>List of all restaurants or filter by the category</li>
-                  <li>Menu of each restaurant (optional)</li>
+                  <li>Restaurant's menu page (optional)</li>
                   <li>Reserve a table form</li>
                 </ul>
               </div>
@@ -46,7 +46,7 @@ export default function AboutOurHackathon(props: any) {
                   <li>Testimonial (optional)</li>
                   <li>FAQs (optional)</li>
                   <li>Recommended restaurants (optional)</li>
-                  <li>Menu of each restaurant (optional)</li>
+                  <li>Restaurant's menu page (optional)</li>
                   <li>Reserve a table form</li>
                 </ul>
               </div>

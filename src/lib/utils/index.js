@@ -14,11 +14,25 @@ export const _$ = selector => typeof document !== 'undefined' && document.queryS
 
 export const sticky = (element, height, className) => window.pageYOffset > height ? element?.classList.add("sticky", "animated", "fadeInDown") : element?.classList.remove("sticky", "animated", "fadeInDown");
 
-
-
 export const handleSticky = (e) => {
   e.preventDefault();
   _$(".navbar").classList.remove('sticky');
+}
+
+export const ValidateFormWithJS = () => {
+  const name = _$('#name').value
+  const email = _$('#email').value
+
+  if (!name) {
+    alert('Please enter your name.')
+    return false
+  }
+
+  if (!email) {
+    alert('Please enter your email.')
+    return false
+  }
+
 }
 
 

@@ -4,13 +4,15 @@ import { useRouter } from 'next/router'
 import { GetStaticProps, GetStaticPaths } from 'next';
 import PostBody from '@/components/dining/PostBody';
 import PostHeader from '@/components/dining/PostHeader';
+import Skeleton from '@/components/ui/Skeleton';
 
-const DinningDetail = ({ restaurant, menuList }: any) => {
+const DinningDetail = ({ restaurant, menuList, preview }: any) => {
   const router = useRouter()
   return (
     <main>
+      {preview}
       {router.isFallback ? (
-        <div className='container'></div>
+        <Skeleton />
       ) : (
         <>
           <PostHeader restaurant={restaurant} menuList={menuList} />
@@ -23,7 +25,6 @@ const DinningDetail = ({ restaurant, menuList }: any) => {
 
 export const getStaticProps: GetStaticProps = async ({ params, preview = false }: any) => {
   const cfClient = preview ? previewClient : client
-
   const { slug } = params
   const response = await cfClient.getEntries({
     content_type: 'diningPage',
@@ -32,7 +33,6 @@ export const getStaticProps: GetStaticProps = async ({ params, preview = false }
 
 
   const response3 = await client.getEntries({ content_type: 'menuPage' })
-
   if (!response?.items?.length) {
     return {
       redirect: {

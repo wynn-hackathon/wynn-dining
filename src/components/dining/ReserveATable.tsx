@@ -1,7 +1,7 @@
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import { useState, useEffect } from "react";
-import { $all, handleSticky } from "@/lib/utils";
+import { $all, handleSticky, _$ } from "@/lib/utils";
 import ModalReserveTable from "./_ModalReserveTable";
 
 const ReserveATable = ({ diningDetail }: any) => {
@@ -38,11 +38,10 @@ const ReserveATable = ({ diningDetail }: any) => {
   const [restaurant, setRestaurant] = useState("Select A Restaurant");
   const [startDate, setStartDate] = useState(new Date(Date.UTC(2023, 3, 12, 3, 0, 0)));
 
-
   const [size, setSize] = useState("2 Guests");
   const [time, setTime] = useState(formatAMPM(new Date()));
   const [reserveInfo, setReserveInfo] = useState({
-    restaurant: restaurant,
+    restaurant: '',
     startDate: startDate,
     people: size,
     time: time
@@ -57,21 +56,28 @@ const ReserveATable = ({ diningDetail }: any) => {
       people: all[2].value,
       time: all[3].value
     }
-
     setReserveInfo(newData);
+
+    if (all[0].value === "Select A Restaurant") {
+      alert("Select A Restaurant, Please!")
+    }
+    else {
+      _$('.btnReserve').setAttribute("data-bs-toggle", "modal")
+      _$('.btnReserve').setAttribute("data-bs-target", ".reserveTableModal")
+    }
     handleSticky(e)
   };
-
 
   return (
     <>
       <div className="reserveATable">
-        <form >
+        <form className="needs-validation">
           <div className="formWrap">
             <div className="restaurants">
               <label>Restaurant</label>
-              <button type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{restaurant}</button>
-              <input className="data" name="restaurant" type="hidden" value={restaurant} />
+              <button type="button" className="btn dropdown-toggle selectRestaurant" data-bs-toggle="dropdown" aria-expanded="false">{restaurant}</button>
+              <input className="data" id="restaurantName" name="restaurant" type="hidden" value={restaurant} required />
+              <div className="invalid-feedback">Please Select a restaurant</div>
               <ul className="dropdown-menu">
                 {restaurantList.map((restaurant: any, i: number) => <li key={i}><a className="dropdown-item" href="#" onClick={(e: any) => setRestaurant(e.target.text)}>{restaurant}</a></li>)}
               </ul>
@@ -98,7 +104,7 @@ const ReserveATable = ({ diningDetail }: any) => {
               <input className="data" name="time" type="hidden" value={time} />
             </div>
           </div>
-          <button className="btn btn-primary btnReserve" onClick={handleReserve} data-bs-toggle="modal" data-bs-target=".reserveTableModal" >Reserve a Table</button>
+          <button className="btn btn-primary btnReserve" onClick={handleReserve} >Reserve a Table</button>
         </form>
       </div >
       <ModalReserveTable info={reserveInfo} />

@@ -21,9 +21,28 @@
       margin-top:0px;
     }
   }
+  .ctas {
+    display: flex;
+    justify-content: space-between;
+    max-width: 320px;
+    margin: 0px auto;
+
+    .btn-secondary {
+      background-color: transparent !important;
+      &:hover {
+        color: var(--secondary-color);
+      }
+    }
+  }
+
   .btn-close {
     top: 20px;
     right: 20px;
+      @include media-size(desktop){
+        transform: scale(1.5);
+        top: 40px;
+      right: 40px;
+      }
   }
   .modal-content{
     border: none;
@@ -73,8 +92,8 @@
     max-width: 700px !important;
     margin: 0px auto;
     padding-bottom: 50px;
-        background: url('/images/line_break.svg') no-repeat center bottom;
-        background-size: 150px;
+    background: url('/images/line_break.svg') no-repeat center bottom;
+    background-size: 150px;
 
     .header {
       align-items: center;
@@ -150,3 +169,12 @@
     }
   }
 }
+
+// .preview{
+//   position: fixed;
+//     top: 20px;
+//     right: 30px;
+//     padding: 15px;
+//     background-color: white;
+//     border-radius: 8px;
+// }
