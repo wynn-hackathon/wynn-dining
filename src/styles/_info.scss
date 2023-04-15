@@ -1,7 +1,11 @@
 .info-box {
   position: relative;
   padding: 50px 20px 20px 20px;
-  margin: 0px;
+  margin-top: 30px;
+
+  @include media-size(big-mobile){
+    margin-top: 0px;
+  }
    p{
     margin-bottom: 0px;
    }

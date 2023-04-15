@@ -1,4 +1,9 @@
 .reserveATable {
+  form{
+    @media(max-width:768px){
+      text-align:center ;
+    }
+  }
   position: relative;
   margin: -50px auto 0px auto;
   padding: 10px 0px 15px 15px;
@@ -7,22 +12,36 @@
   width: 90%;
   max-width: 900px;
   background: $white;
-
   z-index: 10;
 
+  @media(max-width:767px){
+    margin-top: -150px;
+    background-color:rgba(255,255,255,0.9);
+  }
   .formWrap {
     width: calc(100% - 170px);
     justify-content: flex-start;
     align-items: stretch;
     align-content: center;
     display: flex;
+    text-align: left;
+
+    @media (max-width: 768px){
+      flex-direction: column;
+      width: calc(100%);
+      align-items: self-start;
+    }
 
     >div {
       display: block;
-      width: 70px;
+      width: 100%;
       position: relative;
 
-      @include media-size(big-mobile) {
+      @media (min-width: 768px) and (max-width: 900px) {
+        width: 110px;
+      }
+
+      @media (min-width: 901px) {
         width: 150px;
       }
 
@@ -34,13 +53,29 @@
         width: 1px;
         height: 70%;
         background-color: $gray300;
+
+        @media (max-width: 767px){
+          top: 100%;
+          right: 0px;
+          left: 0px;
+          width: 95%;
+          height: 1px;
+        }
       }
 
       &:last-child {
         border-right: none;
 
+        @media (max-width: 767px){
+          border-right:1px;
+        }
+
         &:after {
           background-color: transparent;
+          @media (max-width: 767px){
+            background-color:$gray300;
+          }
+
         }
       }
 
@@ -83,19 +118,33 @@
           position: absolute;
           right: 30px;
           top: 5px;
+          @media(max-width:767px){
+            right: 0px;
+          }
         }
       }
     }
 
     .restaurants {
-      width: calc(100% - 210px);
+      width: calc(100%);
 
-      @include media-size(big-mobile) {
+      @media (min-width: 768px) and (max-width: 900px) {
+        width: calc(100% - 325px);
+      }
+
+      @media (min-width: 901px) {
         width: calc(100% - 450px);
       }
 
+
       .btn:after {
-        right: 0px;
+        @include media-size(tablet) {
+          right: 10px;
+        }
+
+        @include media-size(desktop) {
+          right: 0px;
+        }
       }
     }
   }
@@ -107,6 +156,11 @@
     height: 100%;
     width: 166px;
     border-radius: 0px 8px 8px 0px;
+    @media(max-width:767px){
+      position: relative;
+      border-radius: 0px;
+      margin: 20px auto 10px auto;
+    }
   }
 
   .react-datepicker-wrapper {
@@ -127,18 +181,38 @@
 
   .date {
     position: relative;
-      &:before {
-        content: "\F229";
-        font-family: "bootstrap-icons";
-        top: 18px;
-        right: 25px;
-        position: absolute;
-        z-index: 100;
-        transform: scale(0.6);
+
+    &:before {
+      content: "\F229";
+      font-family: "bootstrap-icons";
+      top: 18px;
+      right: 25px;
+      position: absolute;
+      z-index: 100;
+      transform: scale(0.6);
+      @media (max-width: 768px){
+        right: 30px;
       }
+    }
+
   }
 
   .react-datepicker__day--selected {
     background-color: $brown700;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .reserveATable {
+    .date:before {
+      display: none;
+    }
+
+    .dropdown-toggle:not(.selectRestaurant) {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
   }
 }

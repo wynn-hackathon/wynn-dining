@@ -82,11 +82,6 @@ const ReserveATable = ({ diningDetail }: any) => {
                 {restaurantList.map((restaurant: any, i: number) => <li key={i}><a className="dropdown-item" href="#" onClick={(e: any) => setRestaurant(e.target.text)}>{restaurant}</a></li>)}
               </ul>
             </div>
-            <div className="date">
-              <label>Date</label>
-              <DatePicker selected={startDate} onChange={(startDate: any) => setStartDate(startDate)} />
-            </div>
-            <input className="data" name="startDate" type="hidden" value={formatDate(startDate)} />
             <div>
               <label>Party Size</label>
               <button type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{size}</button>
@@ -95,6 +90,11 @@ const ReserveATable = ({ diningDetail }: any) => {
               </ul>
               <input className="data" name="size" type="hidden" value={size} />
             </div>
+            <div className="date">
+              <label>Date</label>
+              <DatePicker selected={startDate} onChange={(startDate: any) => setStartDate(startDate)} />
+            </div>
+            <input className="data" name="startDate" type="hidden" value={formatDate(startDate)} />
             <div>
               <label>Time</label>
               <button type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{time}</button>

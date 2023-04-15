@@ -50,6 +50,9 @@ export default function OurFlow(props: any) {
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio aenean sed adipiscing diam donec. </p>
             </div>
           </div>
+          <div className='developerTeam'>
+            <div className='logo-amv'><Image src="/images/amv-logo.svg" width="200" height="250" alt="Wynn Las Vegas" /></div>
+          </div>
         </div>
       </main>
     </>

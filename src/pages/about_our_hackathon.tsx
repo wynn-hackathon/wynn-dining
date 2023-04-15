@@ -32,7 +32,7 @@ export default function AboutOurHackathon(props: any) {
                   <li>Intro information </li>
                   <li>Promotions (optional)</li>
                   <li>List of all restaurants or filter by the category</li>
-                  <li>Restaurant's menu page (optional)</li>
+                  <li>Restaurant&apos;s menu page (optional)</li>
                   <li>Reserve a table form</li>
                 </ul>
               </div>
@@ -46,7 +46,7 @@ export default function AboutOurHackathon(props: any) {
                   <li>Testimonial (optional)</li>
                   <li>FAQs (optional)</li>
                   <li>Recommended restaurants (optional)</li>
-                  <li>Restaurant's menu page (optional)</li>
+                  <li>Restaurant&apos;s menu page (optional)</li>
                   <li>Reserve a table form</li>
                 </ul>
               </div>
@@ -57,14 +57,7 @@ export default function AboutOurHackathon(props: any) {
             <div><Image src="/images/tech-env.jpg" width="342" height="31" alt="Wynn Las Vegas" /></div>
             <div><Image src="/images/tech.jpg" width="577" height="29" alt="Wynn Las Vegas" /></div>
           </div>
-          <div className='developerTeam'>
-            <ul >
-              <li><span>A</span>run Kannamkaavil</li>
-              <li> <span>M</span>elat Fransiscos</li>
-              <li><span>V</span>an Nguyen</li>
-            </ul>
-            <div className='logo-amv'><Image src="/images/amv-logo.svg" width="200" height="250" alt="Wynn Las Vegas" /></div>
-          </div>
+
         </div>
       </main>
     </>
