@@ -73,6 +73,11 @@
     text-align: center;
     padding: 0px 10px 20px 10px;
     position: relative;
+    pointer-events: none;
+
+    @include media-size(big-mobile){
+      pointer-events:inherit;
+    }
 
     .pic-wrap {
       width: 100%;
@@ -190,11 +195,20 @@
     max-width: 920px;
     margin: 40px auto 20px auto;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    flex-direction:initial;
     justify-content: space-between;
 
+    @include media-size(big-mobile){
+      flex-wrap: nowrap;
+    }
+
     .text{
-      width: calc(100% - 250px);
+      width: calc(100%);
+
+      @include media-size(big-mobile){
+        width: calc(100% - 250px);
+      }
       .name {
         font-family: $font-avenir-bold;
         @include font-size($font-size-17);
@@ -204,8 +218,16 @@
     }
     .ctas {
       display: flex;
-      flex-direction:column;
-      width: 200px;
+      flex-direction: inherit;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 320px;
+
+      @include media-size(big-mobile){
+        flex-direction:column;
+        width: 200px;
+      }
+
       .btn{
         margin-bottom: 10px;
       }
@@ -213,7 +235,6 @@
   }
   .item {
     position: relative;
-
     .overLay {
       background-color: $black;
     }

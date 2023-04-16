@@ -16,7 +16,7 @@ export const sticky = (element, height, className) => window.pageYOffset > heigh
 
 export const handleSticky = (e) => {
   e.preventDefault();
-  _$(".navbar").classList.remove('sticky');
+  isTablet() || isMobile() ? _$("#myHeader").classList.remove('sticky') : _$(".navbar").classList.remove('sticky');
 }
 
 export const ValidateFormWithJS = () => {

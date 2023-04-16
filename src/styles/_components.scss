@@ -12,7 +12,12 @@
       width: 100%;
       height: auto;
     }
-
+  }
+  .text {
+    margin-top: 30px;
+    @include media-size(big-mobile){
+      margin-top: 0px;
+    }
   }
 }
 
@@ -181,14 +186,17 @@
       img {
         margin-bottom: 30px;
         text-align: center;
-
+        max-width: 100%;
       }
     }
 
     .about {
       background-color: $brown300;
       padding: 40px;
-      margin: 90px auto;
+      margin: 50px auto;
+      @include media-size(big-mobile){
+        margin: 90px auto;
+      }
 
     }
 

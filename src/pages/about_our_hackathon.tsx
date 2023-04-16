@@ -55,7 +55,8 @@ export default function AboutOurHackathon(props: any) {
           <div className='tech'>
             <h2>Technologies</h2>
             <div><Image src="/images/tech-env.jpg" width="342" height="31" alt="Wynn Las Vegas" /></div>
-            <div><Image src="/images/tech.jpg" width="577" height="29" alt="Wynn Las Vegas" /></div>
+            <div><Image src="/images/tech.jpg" width="365" height="29" alt="Wynn Las Vegas" /></div>
+            <div className="text-center"><Image src="/images/tech1.jpg" width="208" height="29" alt="Wynn Las Vegas" /></div>
           </div>
 
         </div>

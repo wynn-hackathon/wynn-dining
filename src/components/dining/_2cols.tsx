@@ -2,7 +2,7 @@ import Image from "next/image"
 import RichText from "../RichText"
 
 const TwoCols = ({ specialMeal }: any) => {
-  const { subTitle, headline, picture, content,switchPosition } = specialMeal.fields.specialMeal.fields
+  const { subTitle, headline, picture, content, switchPosition } = specialMeal.fields.specialMeal.fields
 
   return (
     <section className="twoCols">
@@ -18,7 +18,7 @@ const TwoCols = ({ specialMeal }: any) => {
               className="card-img-top"
             />
           </div>
-          <div className="col">
+          <div className="col text">
             <RichText content={content} />
           </div>
         </div>
