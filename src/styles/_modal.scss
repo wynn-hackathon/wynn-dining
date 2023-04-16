@@ -44,6 +44,16 @@
       right: 40px;
       }
   }
+
+  &.menuModal {
+    .btn-close {
+      top: 0px;
+      @include media-size(desktop){
+        top: 40px;
+      }
+    }
+  }
+
   .modal-content{
     border: none;
   }
