@@ -46,7 +46,7 @@ const Menu = ({ list, menuList }: any) => {
                 <p className="chef">By Executive Pastry Chef Kimberly Beatrix</p>
               </div>
               <div className="list">
-                <div className="row row-cols-1 row-cols-md-6">
+                <div className="row row-cols-1 row-cols-md-2">
                   {categoryArr.map((cat: string, i: number,) => (
                     <div className="col" key={i} data-id={cat} >
                       <h3>{cat}</h3>

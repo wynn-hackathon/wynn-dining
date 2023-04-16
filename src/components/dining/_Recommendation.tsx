@@ -37,7 +37,7 @@ export const Content = ({ title, description, slug, externalLink, i }: any) => {
       </div>
       <div className="ctas">
         <button className="btn btn-secondary" data-bs-toggle="modal" data-bs-target=".menuModal" onClick={handleSticky}>View Menu</button>
-        <Link className="btn btn-secondary" href={url}>View Detail</Link>
+        <Link className="btn btn-primary" href={url}>View Detail</Link>
       </div>
     </div>
   )
@@ -45,7 +45,11 @@ export const Content = ({ title, description, slug, externalLink, i }: any) => {
 
 //Carousel
 const Recommendation = ({ list }: any) => {
-  const titleRecommendArr: any = [], descriptionRecommendArr: any = [], slugRecommendArr: any = [], externalLinkArr: any = [];
+  const titleRecommendArr: any = [],
+    descriptionRecommendArr: any = [],
+    slugRecommendArr: any = [],
+    externalLinkArr: any = [];
+
   const [slider, setSlider] = useState<any>(null);
   const next = () => { slider?.slickNext(); };
   const previous = () => { slider?.slickPrev(); };

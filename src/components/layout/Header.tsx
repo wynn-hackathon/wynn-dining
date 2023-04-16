@@ -52,7 +52,7 @@ const Header = () => {
                 <Link className={router.pathname == "/about_our_hackathon" ? "nav-link active" : "nav-link"} href="/about_our_hackathon" onClick={menuClick}>About Project</Link>
               </li>
               <li className="nav-item">
-                <Link className={router.pathname == "/data_flow" ? "nav-link active" : "nav-link"} href="/data_flow" onClick={menuClick}>Data Flow</Link>
+                <Link className={router.pathname == "/data_flow" ? "nav-link active" : "nav-link"} href="/data_flow" onClick={menuClick}>What We Do</Link>
               </li>
 
               <li className="nav-item">
