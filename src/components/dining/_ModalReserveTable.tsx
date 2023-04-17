@@ -1,42 +1,65 @@
-import { useState } from "react"
+const contentful1 = require('contentful-management')
 import { $all, _$, ValidateFormWithJS } from "@/lib/utils"
+
+export const Connect = async () => {
+  let client = await contentful1.createClient({
+    accessToken: 'CFPAT-4uPlmIWwdVMmGyYsOewFE9cH7VNT20YHr79cerLmOJs'
+  });
+
+  let space = await client.getSpace('osa9szwur3cb')
+  return await space.getEnvironment('master')
+}
 
 const ModalReserveTable = ({ info }: any) => {
   const { restaurant, startDate, people, time } = info
 
-  const [reserveInfo, setReserveInfo] = useState({
-    restaurant: restaurant,
-    startDate: startDate,
-    people: people,
-    time: time,
-    name: '',
-    email: '',
-    phone: ''
-  })
-
   const handleReserve = async (e: any) => {
     e.preventDefault();
-    const all = $all('.userData');
-    const newData = {
-      restaurant: restaurant,
-      startDate: startDate,
-      people: people,
-      time: time,
-      name: all[0].value,
-      email: all[1].value,
-      phone: all[2].value,
-    }
-
-    setReserveInfo(newData);
     ValidateFormWithJS();
+    const all = $all('.userData');
     _$('.thankyou').classList.remove('d-none');
     _$('.infoDetail').classList.add('d-none');
+
+    const CreateCard = async (env: any) => {
+      let card = await env.createEntry('reserveTable', {
+        fields: {
+          nameRestaurant: {
+            'en-US': restaurant
+          },
+          partySize: {
+            'en-US': people
+          },
+          date: {
+            'en-US': startDate,
+          },
+          time: {
+            'en-US': time,
+          },
+          email: {
+            'en-US': all[0].value
+          },
+          name: {
+            'en-US': all[1].value
+          },
+          phoneNumber: {
+            'en-US': all[2].value
+          }
+        }
+      })
+      card.publish()
+    }
+
+    (async () => {
+      let env = await Connect();
+      await CreateCard(env)
+    })();
   };
 
   const handleClose = () => {
     _$('.thankyou').classList.add('d-none');
     _$('.infoDetail').classList.remove('d-none');
   }
+
 
   return (
     <div className="modal fade fullView reserveTableModal" id="reserveTableModal" tabIndex={-1} aria-labelledby="Reserve Table" aria-hidden="true">
