@@ -25,7 +25,7 @@ const ReserveATable = ({ diningDetail }: any) => {
     let dd = date.getDate();
     if (dd < 10) dd = '0' + dd;
     if (mm < 10) mm = '0' + mm;
-    const formattedToday = dd + '/' + mm + '/' + yyyy;
+    const formattedToday = mm + '/' + dd + '/' + yyyy;
     return (formattedToday)
   }
 
@@ -42,8 +42,8 @@ const ReserveATable = ({ diningDetail }: any) => {
   const [time, setTime] = useState(formatAMPM(new Date()));
   const [reserveInfo, setReserveInfo] = useState({
     restaurant: '',
-    startDate: startDate,
     people: size,
+    startDate: startDate,
     time: time
   })
 
@@ -53,17 +53,17 @@ const ReserveATable = ({ diningDetail }: any) => {
     setRestaurant(e.target.text)
   }
 
-  const handleReserve = async (e: any) => {
+  const handleReserve = (e: any) => {
     e.preventDefault();
     const all = $all('.data');
+    console.log(all)
     const newData = {
       restaurant: all[0].value,
-      startDate: all[1].value,
-      people: all[2].value,
+      people: all[1].value,
+      startDate: all[2].value,
       time: all[3].value
     }
     setReserveInfo(newData);
-
     (all[0].value === "Select A Restaurant") && _$('.invalid-feedback.restaurant').classList.add('d-block');
 
     handleSticky(e)

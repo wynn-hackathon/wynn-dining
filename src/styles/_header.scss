@@ -1,6 +1,7 @@
 // ******************************************
 // header
 // ******************************************
+
 .sub-header {
     background-color: $brown700;
 
@@ -236,3 +237,33 @@ nav-item.hidden-d {
         display: none;
     }
 }
+
+.account,.account-m  {
+    display: none;
+
+    @include media-size(big-mobile) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bi:before{
+        @include font-size($font-size-20)
+    }
+    a {
+        @include font-size($font-size-14);
+        font-family: $font-avenir;
+        text-transform: uppercase;
+        color: $black;
+        margin-left: 5px;
+    }
+  }
+
+  .account-m {
+    display: block;
+    text-align: left;
+    padding-top: 20px;
+
+    @include media-size(big-mobile) {
+        display: none;
+    }}

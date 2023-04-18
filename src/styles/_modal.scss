@@ -1,4 +1,3 @@
-
 .fullView {
   .modal-dialog {
     width: 100%;
@@ -8,7 +7,8 @@
     background-color: #FFF8EB;
     z-index: 999999;
   }
-  .modal-body{
+
+  .modal-body {
     margin: 30px auto 30px auto;
     padding: 15px;
     min-width: 0px;
@@ -17,7 +17,7 @@
     @include media-size(big-mobile) {
       max-width: 100%;
       padding: 50px;
-      margin-top:0px;
+      margin-top: 0px;
     }
   }
 
@@ -29,6 +29,7 @@
 
     .btn-secondary {
       background-color: transparent !important;
+
       &:hover {
         color: var(--secondary-color);
       }
@@ -38,59 +39,75 @@
   .btn-close {
     top: 20px;
     right: 20px;
-      @include media-size(desktop){
-        transform: scale(1.5);
-        top: 40px;
+
+    @include media-size(desktop) {
+      transform: scale(1.5);
+      top: 40px;
       right: 40px;
-      }
+    }
   }
 
   &.menuModal {
     .btn-close {
       top: 0px;
-      @include media-size(desktop){
+
+      @include media-size(desktop) {
         top: 40px;
       }
     }
   }
 
-  .modal-content{
+  .modal-content {
     border: none;
+   @include media-size(big-mobile){
+    .w550 {
+      padding: 40px 30px;
+    background-color: rgba(255,255,255,.4);
+    box-shadow: 0px 3px 18px 3px rgba(119, 92, 61, 0.05);
+    }
+   }
   }
 
-  .infoDetail h3,.infoTable  h3 {
+  .infoDetail h3,
+  .infoTable h3 {
     text-transform: uppercase;
     @include font-size($font-size-14);
     font-family: $font-avenir-bold;
     display: inline-block;
     padding: 2px 20px 2px 0px;
-    color:$brown700;
+    color: $brown700;
   }
 
-  .infoTable{
+  .infoTable {
     p {
       line-height: 170%;
       margin-bottom: 20px;
       color: $gray500;
-      span{
+
+      span {
         font-family: $font-avenir;
       }
     }
   }
 
   .yourInfo {
-      padding: 0px 0px 30px 0px;
-      position: relative;
-      .form-control {
-        border-radius: 0px;
-        background-color: transparent !important;
-        border-color:#bca68d;
-        &:focus {
-          box-shadow: 0 0 0 0.25rem rgba(13,110,253,0)
-        }
+    padding: 0px 0px 30px 0px;
+    position: relative;
+
+    .form-control {
+      border-radius: 0px;
+      background-color: transparent !important;
+      border-color: #bca68d;
+
+      &:focus {
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0)
       }
+    }
   }
 
+  .submitted .infoDetail{
+    display: none;
+  }
   .thankyou {
     @include font-size($font-size-18);
     padding: 40px auto;
@@ -98,7 +115,8 @@
     font-family: $font-avenir;
 
   }
-  .container{
+
+  .container {
     max-width: 700px !important;
     margin: 0px auto;
     padding-bottom: 50px;
@@ -115,7 +133,8 @@
       .logo {
 
         text-align: center;
-        img{
+
+        img {
           width: auto;
           height: 50px;
         }
@@ -128,7 +147,7 @@
         @include font-size($font-size-14);
       }
 
-      .menuLogo{
+      .menuLogo {
         width: 65px;
         height: 65px;
         background-color: $brown700;
@@ -142,19 +161,20 @@
       }
     }
 
-    h3{
+    h3 {
       text-transform: uppercase;
       @include font-size($font-size-14);
       font-family: $font-avenir-bold;
       display: inline-block;
       padding: 2px 20px 2px 0px;
-      color:$brown700;;
+      color: $brown700;
       border-bottom: 1px solid $brown700;
     }
-    .list{
+
+    .list {
       padding: 0px 10px;
 
-      @include media-size(big-mobile){
+      @include media-size(big-mobile) {
         padding: 0px 30px;
 
         .col {
@@ -163,12 +183,12 @@
         }
       }
 
-      p{
+      p {
         color: $gray500;
         @include font-size($font-size-14)
       }
 
-      .name{
+      .name {
         font-family: $font-bigCaslon;
         margin-bottom: 0px;
         color: $black;
@@ -180,11 +200,141 @@
   }
 }
 
-// .preview{
-//   position: fixed;
-//     top: 20px;
-//     right: 30px;
-//     padding: 15px;
-//     background-color: white;
-//     border-radius: 8px;
-// }
+.loginModal {
+  .modal-body {
+    padding-top: 100px;
+  }
+  // .logo {
+  //   background: url("/images/amv-logo.svg") no-repeat center center;
+  //   width: 100px;
+  //   height: 70px;
+  //   background-size: contain;
+  //   margin: 0px auto 20px auto;
+  // }
+
+  label {
+    margin-bottom: 5px;
+  }
+  .note {
+    @include font-size($font-size-14);
+    color: $gray500;
+    font-style: italic;
+    margin-bottom: 40px;
+  }
+  h2 {
+    margin-bottom: 0px;
+  }
+
+  .title {
+   &::after {
+    display: none;
+   }
+  }
+
+  .form-control {
+    border-radius: 0px;
+    background-color: transparent !important;
+    border-color: #bca68d;
+
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0)
+    }
+  }
+  .ctas {
+    justify-content:center;
+  }
+
+  @include media-size(big-mobile){
+    .w350 {
+      padding: 50px 35px;
+      background-color: rgba(255,255,255,.4);
+      box-shadow: 0px 3px 18px 3px rgba(119, 92, 61, 0.05);
+    }
+  }
+}
+
+#profileModal {
+  @include media-size(big-mobile){
+    .W550 {
+      max-width: 750px;
+      margin: 0px auto;
+      padding: 0px;
+      background-color: rgba(255,255,255,.4);
+      box-shadow: 0px 3px 18px 3px rgba(119, 92, 61, 0.05);
+    }}
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      margin-bottom: 20px;
+    }
+    .headline{
+      margin-bottom: 0px;
+
+      .col{
+        background-color: $gray500;
+        color: $white;
+        border-right:1px dotted $white;
+      }
+    }
+    .note {
+      margin-bottom: 40px;
+      color: $gray400;
+    }
+
+    .info {
+      padding: 20px 10px;
+      background-color: #fffefb;
+      margin-bottom: 20px;
+      @include media-size(big-mobile) {
+        padding: 50px 30px 30px 30px;
+        margin-bottom: 0px;
+      }
+    }
+    .label {
+      margin-top: 5px;
+      color: $gray400;
+      text-transform: uppercase;
+      @include font-size($font-size-12);
+    }
+    .userDetail {
+      p{
+        padding-bottom: 0px;
+        margin-bottom: 5px;
+      }
+
+      .data_info {
+      padding-bottom: 5px;
+       border-bottom: 1px dotted $gray300;
+       font-family: $font-avenir;
+      }
+    }
+
+    .reverseTbl {
+      padding: 0px;
+
+      @include media-size(big-mobile) {
+        padding: 30px;
+      }
+
+      .nameRestaurant {
+        font-family: $font-avenir;
+      }
+      .table-responsive {
+        th:nth-child(1){
+          min-width: 170px;
+        }
+        th:nth-child(2){
+          min-width: 100px;
+        }
+        th:nth-child(3){
+          min-width: 100px;
+        }
+        th:nth-child(4){
+          min-width: 100px;
+        }
+      }
+    }
+  }

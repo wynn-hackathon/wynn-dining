@@ -5,13 +5,13 @@ import Footer from './Footer'
 import Header from './Header'
 
 type Props = {
-    children: ReactNode,
+  children: ReactNode,
 }
 
-const Layout = ({ children}: Props) => {
+const Layout = ({ children }: Props) => {
   return (
     <>
-     <Header />
+      <Header />
       {children}
       <Footer />
     </>
@@ -19,3 +19,4 @@ const Layout = ({ children}: Props) => {
 }
 
 export default Layout
+

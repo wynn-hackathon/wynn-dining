@@ -1,6 +1,7 @@
 const contentful1 = require('contentful-management')
 import { $all, _$, ValidateFormWithJS } from "@/lib/utils"
 
+
 export const Connect = async () => {
   let client = await contentful1.createClient({
     accessToken: 'CFPAT-4uPlmIWwdVMmGyYsOewFE9cH7VNT20YHr79cerLmOJs'
@@ -13,13 +14,13 @@ export const Connect = async () => {
 const ModalReserveTable = ({ info }: any) => {
   const { restaurant, startDate, people, time } = info
 
-  const handleReserve = async (e: any) => {
+  const handleReserve = (e: any) => {
     e.preventDefault();
     ValidateFormWithJS();
-    const all = $all('.userData');
     _$('.thankyou').classList.remove('d-none');
-    _$('.infoDetail').classList.add('d-none');
+    _$('.w550').classList.add('submitted');
 
+    const all = $all('.userData');
     const CreateCard = async (env: any) => {
       let card = await env.createEntry('reserveTable', {
         fields: {
@@ -35,10 +36,10 @@ const ModalReserveTable = ({ info }: any) => {
           time: {
             'en-US': time,
           },
-          email: {
+          name: {
             'en-US': all[0].value
           },
-          name: {
+          email: {
             'en-US': all[1].value
           },
           phoneNumber: {
@@ -57,7 +58,7 @@ const ModalReserveTable = ({ info }: any) => {
 
   const handleClose = () => {
     _$('.thankyou').classList.add('d-none');
-    _$('.infoDetail').classList.remove('d-none');
+    _$('.w550').classList.remove('submitted');
   }
 
 
@@ -103,3 +104,5 @@ const ModalReserveTable = ({ info }: any) => {
 }
 
 export default ModalReserveTable
+
+
