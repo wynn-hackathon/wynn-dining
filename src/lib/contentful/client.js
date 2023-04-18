@@ -10,3 +10,5 @@ export const previewClient = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
 })
+
+
