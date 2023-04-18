@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import Menu from './_menu';
+import Menu from './_menu'
 import { handleSticky } from '@/lib/utils';
 
 const PostCard = ({ restaurant, menuList }: any) => {
@@ -25,12 +25,12 @@ const PostCard = ({ restaurant, menuList }: any) => {
           </div>
         </div>
         <div className="ctas">
-          {menu && <div><Link href={`#`} aria-label="View Menu" data-bs-toggle="modal" data-bs-target=".menuModal" onClick={handleSticky}>View Menu</Link></div>}
+          {/* {menu && url && <div><Link href={`#`} aria-label="View Menu" data-bs-toggle="modal" data-bs-target=".menuModal" onClick={handleSticky}>View Menu</Link></div>} */}
           <div><Link href={`/diningPage/${slug}`} aria-label="View Detail" className='btn btn-secondary'>View Detail</Link></div>
 
         </div>
       </div>
-      {/* {menu && <Menu list={menu} menuList={menuList} />} */}
+      {/* {menu && <Menu name={name} menuList={menuList} />} */}
     </>
   )
 }

@@ -14,14 +14,13 @@ export const MenuItem = ({ item }: any) => {
 const Menu = ({ name, menuList }: any) => {
   const menuArr: any = []
   const url: any = []
+
   menuList.forEach((item: any, i: number) => {
     if (item.fields.restaurantName == name) {
       menuArr.push(item.fields.meals);
       url.push(item.fields.logo.fields.file)
     }
   });
-
-
   const categoryArr = ["Starters", "Platters", "Main", "Dessert"]
 
   return (
@@ -33,7 +32,7 @@ const Menu = ({ name, menuList }: any) => {
             <div className="container">
               <div className="header">
                 <div className="logo">
-                  {url && <Image
+                  {url[0] && <Image
                     alt={`Cover Image for ${name}`}
                     src={'https:' + url[0].url}
                     width={url[0].details.image.width}
@@ -50,7 +49,7 @@ const Menu = ({ name, menuList }: any) => {
                   {categoryArr.map((cat: string, i: number,) => (
                     <div className="col" key={i} data-id={cat} >
                       <h3>{cat}</h3>
-                      {menuArr[0].map((item: any, i: number) => (
+                      {menuArr[0] && menuArr[0].map((item: any, i: number) => (
                         (cat == item.fields.category) && <MenuItem item={item} key={i} />
                       ))}
                     </div>

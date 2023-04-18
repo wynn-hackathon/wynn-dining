@@ -57,13 +57,13 @@ const Dining = ({ diningDetail, diningPage, menuList }: any) => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const response1 = await client.getEntries({ content_type: 'diningListPage' })
   const response2 = await client.getEntries({ content_type: 'diningPage' })
-  const response3 = await client.getEntries({ content_type: 'menuPage' })
+  // const response3 = await client.getEntries({ content_type: 'menuPage' })
 
   return {
     props: {
       diningPage: response1.items[0].fields,
       diningDetail: response2.items,
-      menuList: response3?.items || '',
+      // menuList: response3?.items || '',
       revalidate: 60,
     }
   }
