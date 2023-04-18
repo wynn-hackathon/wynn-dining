@@ -161,6 +161,10 @@
       border-radius: 0px;
       margin: 20px auto 10px auto;
     }
+
+    &.disable {
+      pointer-events: none;
+    }
   }
 
   .react-datepicker-wrapper {

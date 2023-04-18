@@ -33,6 +33,7 @@
     "typescript": "5.0.3"
   },
   "devDependencies": {
+    "@types/bootstrap": "^5.2.6",
     "@types/react-datepicker": "^4.10.0",
     "@types/react-slick": "^0.23.10"
   }
