@@ -1,10 +1,8 @@
 
 import Image from "next/image"
-import Link from "next/link"
 
 export const MenuItem = ({ item }: any) => {
   const { name, description } = item.fields
-
   return (
     <div className="">
       <p className="name">{name}</p>
@@ -13,15 +11,16 @@ export const MenuItem = ({ item }: any) => {
   )
 }
 
-const Menu = ({ list, menuList }: any) => {
-  const { logo, category } = list.fields
-
+const Menu = ({ name, menuList }: any) => {
   const menuArr: any = []
+  const url: any = []
   menuList.forEach((item: any, i: number) => {
-    if (item.fields.restaurantName == list.fields.restaurantName) {
-      menuArr.push(item.fields.meals)
+    if (item.fields.restaurantName == name) {
+      menuArr.push(item.fields.meals);
+      url.push(item.fields.logo.fields.file)
     }
   });
+
 
   const categoryArr = ["Starters", "Platters", "Main", "Dessert"]
 
@@ -34,13 +33,14 @@ const Menu = ({ list, menuList }: any) => {
             <div className="container">
               <div className="header">
                 <div className="logo">
-                  <Image
-                    alt={`Cover Image for ${list.fields.restaurantName}`}
-                    src={'https:' + logo.fields.file.url}
-                    width={logo.fields.file.details.image.width}
-                    height={logo.fields.file.details.image.height}
+                  {url && <Image
+                    alt={`Cover Image for ${name}`}
+                    src={'https:' + url[0].url}
+                    width={url[0].details.image.width}
+                    height={url[0].details.image.height}
                     className="mg-fluid"
                   />
+                  }
 
                 </div>
                 <p className="chef">By Executive Pastry Chef Kimberly Beatrix</p>

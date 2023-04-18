@@ -13,7 +13,6 @@ const PostHeader = ({ restaurant, menuList }: any) => {
     time: "5:00 PM"
   }
 
-
   return (
     <>
       <section className="banner">
@@ -50,7 +49,7 @@ const PostHeader = ({ restaurant, menuList }: any) => {
         </div>
       </section>
       <ModalReserveTable info={reserveInfo} />
-      {menu && <Menu list={menu} menuList={menuList} />}
+      {menu && <Menu name={name} menuList={menuList} />}
     </>
   )
 }

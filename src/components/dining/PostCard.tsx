@@ -30,7 +30,7 @@ const PostCard = ({ restaurant, menuList }: any) => {
 
         </div>
       </div>
-      {menu && <Menu list={menu} menuList={menuList} />}
+      {/* {menu && <Menu list={menu} menuList={menuList} />} */}
     </>
   )
 }
