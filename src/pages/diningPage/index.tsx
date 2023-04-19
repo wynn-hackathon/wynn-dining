@@ -13,7 +13,7 @@ const Dining = ({ diningDetail, diningPage, menuList }: any) => {
   useEffect(() => {
     diningDetail.map((restaurant: any) => (category.push(restaurant.fields.category)))
     setCategory([...new Set(category)])
-  });
+  }, [category]);
 
 
   const handleFilter = ((target: any, cat: string) => {
