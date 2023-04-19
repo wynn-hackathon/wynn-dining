@@ -61,7 +61,7 @@ const Gallery = ({ photos }: any) => {
   return (
     <section className="gallery lightGallery">
       <Slider {...settings} ref={(c: any) => setSlider(c)}>
-        {photos.fields.gallery.map((pic: any, i: number) => (
+        {photos.fields.gallery?.map((pic: any, i: number) => (
           <CarouselItems pic={pic} key={i} i={i} />
         ))}
       </Slider>
@@ -69,7 +69,7 @@ const Gallery = ({ photos }: any) => {
         <span className="prevArrow previousBtn arrow" onClick={previous}><span className="preBtn"><Image alt="Previous" aria-label="Previous" width="38" height="38" src="/images/icon-arrow.svg" /></span></span>
         <span className="nextArrow arrow" onClick={next}><Image alt="Next" aria-label="Next" width="38" height="38" src="/images/icon-arrow.svg" /></span>
       </div>
-      {titleArr.map((title: any, i: number) => { return (<p key={i} className="nameRestaurant d-none" data-id={i}>{title}</p>) })}
+      {titleArr?.map((title: any, i: number) => { return (<p key={i} className="nameRestaurant d-none" data-id={i}>{title}</p>) })}
     </section>
   )
 }
