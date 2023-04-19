@@ -1,12 +1,7 @@
 const contentful = require('contentful')
 import { $all, _$, ValidateFormWithJS } from "@/lib/utils"
 import { useState } from "react";
-import { useRouter } from "next/router";
-
-
 const ModalLogin = () => {
-  const router = useRouter()
-
   const [users, setUsers] = useState({
     email: "",
     name: "",
@@ -26,7 +21,7 @@ const ModalLogin = () => {
     const all = $all('#login .user_Data');
     if ((all[0].value == users.email) && (all[1].value == users.password)) {
       _$('.invalid-feedback.password').classList.remove('d-block');
-      router.push('/diningPage')
+      // router.push('/diningPage')
       _$('.btn-close').click();
       _$('.account .login').classList.toggle('d-none')
       _$('.account-m .login').classList.toggle('d-none')
