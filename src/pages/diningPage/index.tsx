@@ -7,13 +7,17 @@ import Promotion from '@/components/dining/_Promotion';
 import { useState, useEffect } from 'react';
 import { _$, $all } from '@/lib/utils';
 import Menu from '@/components/dining/_menu';
+import { StringDecoder } from 'string_decoder';
 
 const Dining = ({ diningDetail, diningPage, menuList }: any) => {
+  // const result : string[] = [];
+
   const [category, setCategory] = useState([]);
+  let diningArray: any = [];
   useEffect(() => {
-    diningDetail.map((restaurant: any) => (category.push(restaurant.fields.category)))
-    setCategory([...new Set(category)])
-  }, [category]);
+    diningDetail.map((restaurant: any) => (diningArray.push(restaurant.fields.category)))
+    setCategory([...new Set(diningArray)])
+  }, [diningDetail, diningArray]);
 
 
   const handleFilter = ((target: any, cat: string) => {
