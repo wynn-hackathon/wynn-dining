@@ -8,9 +8,9 @@ const ReserveATable = ({ diningDetail }: any) => {
 
   // Format time
   function formatAMPM(date: any) {
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let ampm = hours >= 12 ? 'PM' : 'AM';
+    let hours: any = date.getHours();
+    let minutes: any = date.getMinutes();
+    let ampm: any = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12;
     hours = hours ? hours : 12;
     minutes = minutes < 10 ? '0' + minutes : minutes;
@@ -20,20 +20,21 @@ const ReserveATable = ({ diningDetail }: any) => {
 
   // Format Date
   function formatDate(date: any) {
-    const yyyy = date.getFullYear();
-    let mm = date.getMonth() + 1;
-    let dd = date.getDate();
+    const yyyy: any = date.getFullYear();
+    let mm: any = date.getMonth() + 1;
+    let dd: any = date.getDate();
     if (dd < 10) dd = '0' + dd;
     if (mm < 10) mm = '0' + mm;
-    const formattedToday = mm + '/' + dd + '/' + yyyy;
+    const formattedToday: any = mm + '/' + dd + '/' + yyyy;
     return (formattedToday)
   }
 
   // Data
-  const restaurantList = [null]
-  const partySize = ['1 Guest', '2 Guests', '3 Guests', '4 Guests', '5 Guests', '6 Guests']
-  const timeList = ['12:00 AM', '12:30 AM', '1:00 AM', '1:30 AM', '2:00 AM', '2:30 AM', '3:00 AM', '3:30 AM', '4:00 AM', '4:30 AM', '5:00 AM', '5:30 AM', '6:00 AM', '6:30 AM', '7:00 AM', '7:30 AM', '8:00 AM', '8:30 AM', '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM', '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM', '6:30 PM', '7:00 PM', '7:30 PM', '8:00 PM', '8:30 PM', '9:00 PM', '9:30 PM', '10:00 PM', '10:30 PM', '11:00 PM', '11:30 PM']
-  diningDetail.map((restaurant: any) => restaurantList.push(restaurant.fields.name));
+  const restaurantList: any = [null]
+  const partySize: any = ['1 Guest', '2 Guests', '3 Guests', '4 Guests', '5 Guests', '6 Guests']
+  const timeList: any = ['12:00 AM', '12:30 AM', '1:00 AM', '1:30 AM', '2:00 AM', '2:30 AM', '3:00 AM', '3:30 AM', '4:00 AM', '4:30 AM', '5:00 AM', '5:30 AM', '6:00 AM', '6:30 AM', '7:00 AM', '7:30 AM', '8:00 AM', '8:30 AM', '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM', '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM', '6:30 PM', '7:00 PM', '7:30 PM', '8:00 PM', '8:30 PM', '9:00 PM', '9:30 PM', '10:00 PM', '10:30 PM', '11:00 PM', '11:30 PM']
+
+  diningDetail?.map((restaurant: any) => restaurantList.push(restaurant.fields.name));
 
   const [restaurant, setRestaurant] = useState("Select A Restaurant");
   const [startDate, setStartDate] = useState(new Date(Date.UTC(2023, 3, 12, 3, 0, 0)));
@@ -55,9 +56,9 @@ const ReserveATable = ({ diningDetail }: any) => {
 
   const handleReserve = (e: any) => {
     e.preventDefault();
-    const all = $all('.data');
+    const all: any = $all('.data');
     console.log(all)
-    const newData = {
+    const newData: any = {
       restaurant: all[0].value,
       people: all[1].value,
       startDate: all[2].value,
@@ -79,7 +80,7 @@ const ReserveATable = ({ diningDetail }: any) => {
               <button type="button" className="btn dropdown-toggle selectRestaurant" data-bs-toggle="dropdown" aria-expanded="false">{restaurant}</button>
               <input className="data" id="restaurantName" name="restaurant" type="hidden" value={restaurant} required />
               <ul className="dropdown-menu">
-                {restaurantList.map((restaurant: any, i: number) => <li key={i}>
+                {restaurantList?.map((restaurant: any, i: number) => <li key={i}>
                   <a className="dropdown-item" href="#" onClick={handleChange}>{restaurant}</a></li>)}
               </ul>
             </div>
@@ -87,7 +88,7 @@ const ReserveATable = ({ diningDetail }: any) => {
               <label>Party Size</label>
               <button type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{size}</button>
               <ul className="dropdown-menu">
-                {partySize.map((size: any, i: number) => <li key={i}><a className="dropdown-item" href="#" onClick={(e: any) => setSize(e.target.text)}>{size}</a></li>)}
+                {partySize?.map((size: any, i: number) => <li key={i}><a className="dropdown-item" href="#" onClick={(e: any) => setSize(e.target.text)}>{size}</a></li>)}
               </ul>
               <input className="data" name="size" type="hidden" value={size} />
             </div>
@@ -100,7 +101,7 @@ const ReserveATable = ({ diningDetail }: any) => {
               <label>Time</label>
               <button type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{time}</button>
               <ul className="dropdown-menu">
-                {timeList.map((time: any, i: number) => <li key={i}><a className="dropdown-item" href="#" onClick={(e: any) => setTime(e.target.text)}>{time}</a></li>)}
+                {timeList?.map((time: any, i: number) => <li key={i}><a className="dropdown-item" href="#" onClick={(e: any) => setTime(e.target.text)}>{time}</a></li>)}
               </ul>
               <input className="data" name="time" type="hidden" value={time} />
             </div>

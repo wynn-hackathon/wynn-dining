@@ -20,18 +20,18 @@ const GalleryModal = ({ photos }: any) => {
   return (
     <section className="gallery">
       <Slider {...settings} >
-        {photos.fields.gallery.map((pic: any, i: number) => {
+        {photos?.fields.gallery.map((pic: any, i: number) => {
           return (
             <div className="" key={i} data-curr={i}>
               <div className="pic-wrap">
                 <Image
                   alt={`Cover Image for ${pic.fields.title}`}
-                  src={'https:' + pic.fields.picture[0].fields.file.url}
-                  width={pic.fields.picture[0].fields.file.details.image.width}
-                  height={pic.fields.picture[0].fields.file.details.image.height}
+                  src={'https:' + pic?.fields.picture[0].fields.file.url}
+                  width={pic?.fields.picture[0].fields.file.details.image.width}
+                  height={pic?.fields.picture[0].fields.file.details.image.height}
                   className="card-img-top" />
               </div>
-              <p className="title">{pic.fields.title}</p>
+              <p className="title">{pic?.fields.title}</p>
             </div>
           )
         })}

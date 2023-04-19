@@ -2,7 +2,7 @@ import Image from "next/image"
 import RichText from "../RichText"
 
 const TwoCols = ({ specialMeal }: any) => {
-  const { subTitle, headline, picture, content, switchPosition } = specialMeal.fields.specialMeal.fields
+  const { subTitle, headline, picture, content, switchPosition } = specialMeal?.fields.specialMeal.fields
 
   return (
     <section className="twoCols">
@@ -12,9 +12,9 @@ const TwoCols = ({ specialMeal }: any) => {
           <div className="col pic">
             <Image
               alt={`Cover Image for ${subTitle}`}
-              src={'https:' + picture.fields.file.url}
-              width={picture.fields.file.details.image.width}
-              height={picture.fields.file.details.image.height}
+              src={'https:' + picture?.fields.file.url}
+              width={picture?.fields.file.details.image.width}
+              height={picture?.fields.file.details.image.height}
               className="card-img-top"
             />
           </div>

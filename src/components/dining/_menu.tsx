@@ -15,10 +15,10 @@ const Menu = ({ name, menuList }: any) => {
   const menuArr: any = []
   const url: any = []
 
-  menuList.forEach((item: any, i: number) => {
+  menuList?.forEach((item: any, i: number) => {
     if (item.fields.restaurantName == name) {
-      menuArr.push(item.fields.meals);
-      url.push(item.fields.logo.fields.file)
+      menuArr?.push(item.fields.meals);
+      url?.push(item.fields.logo.fields.file)
     }
   });
   const categoryArr = ["Starters", "Platters", "Main", "Dessert"]

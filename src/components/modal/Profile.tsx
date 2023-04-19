@@ -3,10 +3,10 @@ import { _$ } from "@/lib/utils"
 import { useState } from "react";
 
 export const Info = ({ user }: any) => {
-  const { email, name, phoneNumber } = user.fields
+  const { email, name, phoneNumber } = user?.fields
   return (
     <div className="info">
-      <h2>Your details</h2>
+      <h2>Your Profile</h2>
       {/* <p className="text-center note">Details will be saved to streamline future reserve a table</p> */}
       <div className="userDetail">
         <p className="label">Full Name</p>
@@ -40,7 +40,7 @@ export const Profile = ({ user }: any) => {
 
 const ModalProfile = () => {
   const [list, setList] = useState([]);
-  const user = _$('#loginModal #user_profile')?.value
+  const user: any = _$('#loginModal #user_profile')?.value
 
   const getReserve = async () => {
     const lists = await client.getEntries({ content_type: 'reserveTable' })
@@ -51,7 +51,7 @@ const ModalProfile = () => {
     await getReserve()
   })();
 
-  const reservations = list.filter((item: any) => (user == item.fields.email))
+  const reservations: any = list?.filter((item: any) => (user == item.fields.email))
   return (
     <div className="modal fade fullView profileModal" id="profileModal" tabIndex={-1} aria-labelledby="profile Modal" aria-hidden="true">
       <div className="modal-dialog">

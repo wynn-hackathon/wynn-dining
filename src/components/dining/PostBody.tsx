@@ -8,7 +8,7 @@ import Recommendation from './_Recommendation';
 import Modal from './_modal';
 
 const PostBody = ({ restaurant }: any) => {
-  const { content, gallery, specialMeal, testimonial, faqList, recommendationRestaurants } = restaurant.fields;
+  const { content, gallery, specialMeal, testimonial, faqList, recommendationRestaurants } = restaurant?.fields;
   return (
     <>
       <div className="container">

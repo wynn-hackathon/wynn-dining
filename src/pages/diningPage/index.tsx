@@ -8,11 +8,13 @@ import { _$, $all } from '@/lib/utils';
 const Dining = ({ diningDetail, diningPage, menuList, categoriesArr }: any) => {
 
   const handleFilter = ((target: any, cat: string) => {
-    const arr = $all(".dining-wrap")
+    const arr: any = $all(".dining-wrap")
+    const arr1: any = $all(".filter li")
+    const arr2: any = $all(".dining-wrap")
 
-    $all(".filter li").forEach((item) => item.classList.remove("active"));
-    $all(".dining-wrap").forEach((item) => item.classList.remove("active"));
-    (cat === "All") ? arr.forEach((item) => item.classList.add("active")) : _$(".dining-wrap[data-id='" + cat + "']").classList.add("active")
+    arr1.forEach((item: any) => item.classList.remove("active"));
+    arr2.forEach((item: any) => item.classList.remove("active"));
+    (cat === "All") ? arr?.forEach((item: any) => item.classList.add("active")) : _$(".dining-wrap[data-id='" + cat + "']").classList.add("active")
     target.classList.toggle("active")
 
   });
@@ -26,14 +28,14 @@ const Dining = ({ diningDetail, diningPage, menuList, categoriesArr }: any) => {
           <div className='filter'>
             <ul>
               <li className="active" onClick={(e) => { e.preventDefault(); handleFilter(e.target, "All") }}>All</li>
-              {categoriesArr.category.map((cat: string, i: number) => (<li key={i} onClick={(e) => { e.preventDefault(); handleFilter(e.target, cat) }}>{cat}</li>))}
+              {categoriesArr?.category.map((cat: string, i: number) => (<li key={i} onClick={(e) => { e.preventDefault(); handleFilter(e.target, cat) }}>{cat}</li>))}
             </ul>
           </div>
           {categoriesArr.category.map((cat: string, i: number,) => (
             <div className='dining-wrap active' key={i} data-id={cat} >
               <h2 className="h2 text-center" tabIndex={0}>{cat}</h2>
               <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 listCards">
-                {diningDetail.map((restaurant: any, i: any) => (
+                {diningDetail?.map((restaurant: any, i: any) => (
                   (cat == restaurant.fields.category) && <PostCard key={restaurant.fields.slug} restaurant={restaurant} menuList={menuList} />
                 ))}
               </div>
@@ -52,9 +54,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      diningPage: response1.items[0].fields,
-      diningDetail: response2.items,
-      categoriesArr: categories.items[0].fields || [],
+      diningPage: response1?.items[0].fields,
+      diningDetail: response2?.items,
+      categoriesArr: categories?.items[0].fields || [],
       revalidate: 60,
     }
   }

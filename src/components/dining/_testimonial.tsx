@@ -1,6 +1,6 @@
 
 const Testimonial = ({ testimonial }: any) => {
- const {content,signature} = testimonial.fields.testimonial.fields
+  const { content, signature } = testimonial?.fields.testimonial.fields
   return (
     <section className="testimonial-wrap">
       <div className="container">

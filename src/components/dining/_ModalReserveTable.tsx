@@ -20,7 +20,7 @@ const ModalReserveTable = ({ info }: any) => {
     _$('.thankyou').classList.remove('d-none');
     _$('.w550').classList.add('submitted');
 
-    const all = $all('.userData');
+    const all: any = $all('.userData');
     const CreateCard = async (env: any) => {
       let card = await env.createEntry('reserveTable', {
         fields: {

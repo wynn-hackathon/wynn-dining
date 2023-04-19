@@ -7,7 +7,7 @@ import PostHeader from '@/components/dining/PostHeader';
 import Skeleton from '@/components/ui/Skeleton';
 
 const DinningDetail = ({ restaurant, menuList, preview }: any) => {
-  const router = useRouter()
+  const router: any = useRouter()
   return (
     <main>
       {preview}
@@ -55,7 +55,7 @@ export const getStaticProps: GetStaticProps = async ({ params, preview = false }
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await client.getEntries({ content_type: 'diningPage' })
 
-  const paths = response.items.map((item: any) => ({
+  const paths = response?.items.map((item: any) => ({
     params: { slug: item.fields.slug }
   }))
 

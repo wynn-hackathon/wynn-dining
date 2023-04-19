@@ -10,9 +10,9 @@ const Promotion = ({ promotion }: any) => {
         <div className="pic">
           <Image
             alt={`Cover Image for ${name}`}
-            src={'https:' + thumbImage.fields.file.url}
-            width={thumbImage.fields.file.details.image.width}
-            height={thumbImage.fields.file.details.image.height}
+            src={'https:' + thumbImage?.fields.file.url}
+            width={thumbImage?.fields.file.details.image.width}
+            height={thumbImage?.fields.file.details.image.height}
             className="card-img-top" />
         </div>
         <div className="content">

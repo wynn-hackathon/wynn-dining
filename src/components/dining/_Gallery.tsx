@@ -13,10 +13,10 @@ export const CarouselItems = ({ pic, i }: any) => {
     <div className="item">
       <div className="pic-wrap" data-bs-toggle="modal" data-bs-target=".galleryModal" onClick={handleSticky}>
         <Image
-          alt={`Cover Image for ${pic.fields.title}`}
-          src={'https:' + pic.fields.picture[0].fields.file.url}
-          width={pic.fields.picture[0].fields.file.details.image.width}
-          height={pic.fields.picture[0].fields.file.details.image.height}
+          alt={`Cover Image for ${pic?.fields.title}`}
+          src={'https:' + pic?.fields.picture[0].fields.file.url}
+          width={pic?.fields.picture[0].fields.file.details.image.width}
+          height={pic?.fields.picture[0].fields.file.details.image.height}
           className="card-img-top" />
         <div className="overLay"></div>
       </div>
@@ -32,7 +32,7 @@ const Gallery = ({ photos }: any) => {
   const next = () => { slider?.slickNext(); };
   const previous = () => { slider?.slickPrev(); };
 
-  photos.fields.gallery.forEach((item: any, i: number) => { titleArr.push(item.fields.title) })
+  photos?.fields.gallery.forEach((item: any, i: number) => { titleArr.push(item.fields.title) })
 
   var settings = {
     dots: true,
@@ -52,7 +52,8 @@ const Gallery = ({ photos }: any) => {
       _$('.nameRestaurant[data-id="0"]').classList.remove('d-none')
     },
     afterChange: (index: number) => {
-      $all('.nameRestaurant').forEach((item) => item.classList.add('d-none'))
+      const arr: any = $all('.nameRestaurant')
+      arr.forEach((item: any) => item.classList.add('d-none'))
       _$('.nameRestaurant[data-id="' + index + '"]').classList.remove('d-none')
     },
     responsive: responsive,
@@ -61,7 +62,7 @@ const Gallery = ({ photos }: any) => {
   return (
     <section className="gallery lightGallery">
       <Slider {...settings} ref={(c: any) => setSlider(c)}>
-        {photos.fields.gallery?.map((pic: any, i: number) => (
+        {photos?.fields.gallery?.map((pic: any, i: number) => (
           <CarouselItems pic={pic} key={i} i={i} />
         ))}
       </Slider>

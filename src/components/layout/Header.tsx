@@ -10,11 +10,11 @@ import ModalProfile from '../modal/Profile'
 const Header = () => {
 
   const router = useRouter();
-  let homeClass = "nav-link";
+  let homeClass: any = "nav-link";
   router.pathname.includes('diningPage') && (homeClass += " active");
 
   const hampugerMenuClick = () => {
-    let isMenuOpen = _$('.navbar #navbarNav').classList.contains('show');
+    let isMenuOpen: any = _$('.navbar #navbarNav').classList.contains('show');
     return !isMenuOpen && _$('.navbar').classList.toggle("menu-open-m");
   }
 
@@ -32,7 +32,7 @@ const Header = () => {
 
 
   useEffect(() => {
-    window.addEventListener("scroll", (e) => {
+    window?.addEventListener("scroll", (e) => {
       let header, height;
       isMobile() ? header = _$("#myHeader") : header = _$("#myHeader .mainNav");
       isMobile() ? height = 180 : height = 220;

@@ -3,20 +3,20 @@ import Slider from 'react-slick'
 import Link from "next/link";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { _$, responsive, $all, handleSticky } from "@/lib/utils";
+import { _$, $all, handleSticky } from "@/lib/utils";
 import { useState } from "react";
 
 //Render Item of Carousel
 export const RecommendedItems = ({ pic, i }: any) => {
-  const { mobileBanner, name } = pic.fields
+  const { mobileBanner, name } = pic?.fields
   return (
     <div className="item">
       <div className="pic-wrap">
         <Image
           alt={`Cover Image for ${name}`}
-          src={'https:' + mobileBanner.fields.file.url}
-          width={mobileBanner.fields.file.details.image.width}
-          height={mobileBanner.fields.file.details.image.height}
+          src={'https:' + mobileBanner?.fields.file.url}
+          width={mobileBanner?.fields.file.details.image.width}
+          height={mobileBanner?.fields.file.details.image.height}
           className="card-img-top"
         />
         <div className="overLay"></div>
@@ -28,7 +28,7 @@ export const RecommendedItems = ({ pic, i }: any) => {
 
 //Render Caption of Item of Carousel
 export const Content = ({ title, description, slug, externalLink, i }: any) => {
-  const url = externalLink ? externalLink : '/diningPage/' + slug;
+  const url: any = externalLink ? externalLink : '/diningPage/' + slug;
   return (
     <div className="restaurant d-none" data-id={i}>
       <div className="text">
@@ -54,7 +54,7 @@ const Recommendation = ({ list }: any) => {
   const next = () => { slider?.slickNext(); };
   const previous = () => { slider?.slickPrev(); };
 
-  list.forEach((item: any, i: number) => {
+  list?.forEach((item: any, i: number) => {
     titleRecommendArr.push(item.fields.name);
     descriptionRecommendArr.push(item.fields.shortDescription);
     slugRecommendArr.push(item.fields.slug);
@@ -81,7 +81,8 @@ const Recommendation = ({ list }: any) => {
       _$('.restaurant[data-id="0"]').classList.remove('d-none')
     },
     afterChange: (index: number) => {
-      $all('.restaurant').forEach((item) => item.classList.add('d-none'))
+      const arr: any = $all('.restaurant')
+      arr.forEach((item: any) => item.classList.add('d-none'))
       _$('.restaurant[data-id="' + index + '"]').classList.remove('d-none')
     },
     responsive: [
@@ -105,7 +106,7 @@ const Recommendation = ({ list }: any) => {
       <h2><span className="page-title">We also recommend</span>Dining at Encore Boston Harbor</h2>
       <div className="container">
         <Slider {...settings} ref={(c: any) => setSlider(c)}>
-          {list.map((pic: any, i: number) => (
+          {list?.map((pic: any, i: number) => (
             <RecommendedItems pic={pic} key={i} i={i} />
           ))}
         </Slider>
@@ -113,7 +114,7 @@ const Recommendation = ({ list }: any) => {
           <span className="prevArrow previousBtn arrow" onClick={previous}><span className="preBtn"><Image alt="Previous" aria-label="Previous" width="38" height="38" src="/images/icon-arrow.svg" /></span></span>
           <span className="nextArrow arrow" onClick={next}><Image alt="Next" aria-label="Next" width="38" height="38" src="/images/icon-arrow.svg" /></span>
         </div>
-        {titleRecommendArr.map((title: any, i: number) => (
+        {titleRecommendArr?.map((title: any, i: number) => (
           <Content title={title} description={descriptionRecommendArr[i]} slug={slugRecommendArr[i]} externalLink={externalLinkArr[i]} key={i} i={i} />
         ))}
       </div>

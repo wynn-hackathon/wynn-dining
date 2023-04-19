@@ -11,17 +11,17 @@ const DiningBanner = ({ diningPage, diningDetail }: any) => {
         <div className="img desktop">
           <Image
             alt={`Cover Image for ${headline}`}
-            src={'https:' + desktopBanner.fields.file.url}
-            width={desktopBanner.fields.file.details.image.width}
-            height={desktopBanner.fields.file.details.image.height}
+            src={'https:' + desktopBanner?.fields.file.url}
+            width={desktopBanner?.fields.file.details.image.width}
+            height={desktopBanner?.fields.file.details.image.height}
           />
         </div>
         <div className="img mobile">
           <Image
             alt={`Cover Image for ${headline}`}
-            src={'https:' + mobileBanner.fields.file.url}
-            width={mobileBanner.fields.file.details.image.width}
-            height={mobileBanner.fields.file.details.image.height}
+            src={'https:' + mobileBanner?.fields.file.url}
+            width={mobileBanner?.fields.file.details.image.width}
+            height={mobileBanner?.fields.file.details.image.height}
           />
         </div>
         <ReserveATable diningDetail={diningDetail} />

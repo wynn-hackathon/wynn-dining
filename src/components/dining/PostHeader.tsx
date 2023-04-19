@@ -5,7 +5,7 @@ import Menu from './_menu'
 import { _$, handleSticky } from '@/lib/utils';
 
 const PostHeader = ({ restaurant, menuList }: any) => {
-  const { name, desktopBanner, mobileBanner, subTitle, shortDescription, menu } = restaurant.fields
+  const { name, desktopBanner, mobileBanner, subTitle, shortDescription, menu } = restaurant?.fields
   const reserveInfo = {
     restaurant: name,
     startDate: '04/12/2023',
@@ -19,9 +19,9 @@ const PostHeader = ({ restaurant, menuList }: any) => {
         <div className="img desktop">
           <Image
             alt={`Cover Image for ${name}`}
-            src={'https:' + desktopBanner.fields.file.url}
-            width={desktopBanner.fields.file.details.image.width}
-            height={desktopBanner.fields.file.details.image.height}
+            src={'https:' + desktopBanner?.fields.file.url}
+            width={desktopBanner?.fields.file.details.image.width}
+            height={desktopBanner?.fields.file.details.image.height}
           />
         </div>
         <div className="img mobile">

@@ -1,5 +1,5 @@
 const contentful = require('contentful')
-import { $all, _$, ValidateFormWithJS } from "@/lib/utils"
+import { $all, _$ } from "@/lib/utils"
 import { useState } from "react";
 const ModalLogin = () => {
   const [users, setUsers] = useState({
@@ -18,10 +18,9 @@ const ModalLogin = () => {
 
   const handleLogin = (e: any) => {
     e.preventDefault();
-    const all = $all('#login .user_Data');
+    const all: any = $all('#login .user_Data');
     if ((all[0].value == users.email) && (all[1].value == users.password)) {
       _$('.invalid-feedback.password').classList.remove('d-block');
-      // router.push('/diningPage')
       _$('.btn-close').click();
       _$('.account .login').classList.toggle('d-none')
       _$('.account-m .login').classList.toggle('d-none')

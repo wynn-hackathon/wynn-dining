@@ -1,10 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import Menu from './_menu'
-import { handleSticky } from '@/lib/utils';
 
-const PostCard = ({ restaurant, menuList }: any) => {
-  const { name, thumbImage, shortDescription, slug, category, menu } = restaurant.fields;
+const PostCard = ({ restaurant }: any) => {
+  const { name, thumbImage, shortDescription, slug, category } = restaurant?.fields;
 
   return (
     <>
@@ -13,9 +11,9 @@ const PostCard = ({ restaurant, menuList }: any) => {
           <Link href={`/diningPage/${slug}`} aria-label="View Detail">
             <Image
               alt={`Cover Image for ${name}`}
-              src={'https:' + thumbImage.fields.file.url}
-              width={thumbImage.fields.file.details.image.width}
-              height={thumbImage.fields.file.details.image.height}
+              src={'https:' + thumbImage?.fields.file.url}
+              width={thumbImage?.fields.file.details.image.width}
+              height={thumbImage?.fields.file.details.image.height}
               className="card-img-top"
             />
           </Link>
