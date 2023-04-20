@@ -1,12 +1,12 @@
 const contentful = require('contentful')
 
 export const client = contentful.createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+  space: 'osa9szwur3cb',
+  accessToken: 'maEy9u6BFyYAWn_QrHL4pvZi6zEMZGLCD_ICiCCq9nU'
 });
 
 export const previewClient = contentful.createClient({
   host: 'preview.contentful.com',
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
+  space: 'osa9szwur3cb',
+  accessToken: 'mhilaPhZ_WaA03Xy10otG67i4UwiLoELdO20_4mFHXo'
 })
