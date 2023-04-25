@@ -1,4 +1,5 @@
 .reserveATable {
+
   form{
     @media(max-width:768px){
       text-align:center ;
@@ -63,19 +64,10 @@
         }
       }
 
-      &:last-child {
-        border-right: none;
-
+      &.time::after {
+        background-color: transparent;
         @media (max-width: 767px){
-          border-right:1px;
-        }
-
-        &:after {
-          background-color: transparent;
-          @media (max-width: 767px){
-            background-color:$gray300;
-          }
-
+          background-color: $gray300;
         }
       }
 
@@ -101,6 +93,7 @@
         text-transform: uppercase;
         @include font-size($font-size-11);
         font-family: $font-avenir;
+        color: $gray500;
       }
 
       .btn {

@@ -254,6 +254,13 @@
 }
 
 #profileModal {
+  .avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 0px auto 20px auto;
+    border-radius: 50%!important;
+  }
   @include media-size(big-mobile){
     .W550 {
       max-width: 750px;
@@ -322,6 +329,8 @@
       .nameRestaurant {
         font-family: $font-avenir;
       }
+
+
       .table-responsive {
         th:nth-child(1){
           min-width: 170px;
@@ -337,4 +346,18 @@
         }
       }
     }
+  }
+
+  .reverseTbl {
+    th{
+      // background-color: $gray300;
+      @include font-size($font-size-12);
+      text-transform:uppercase;
+      font-family: $font-avenir;
+    }
+    td{
+      @include font-size($font-size-14);
+      border: none;
+    }
+
   }

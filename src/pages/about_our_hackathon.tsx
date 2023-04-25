@@ -35,6 +35,12 @@ export default function AboutOurHackathon(props: any) {
                   <li>Restaurant&apos;s menu page (optional)</li>
                   <li>Reserve a table form</li>
                 </ul>
+                <h3>Profile</h3>
+                <ul>
+                  <li>Login</li>
+                  <li>User information</li>
+                  <li>Reservations of the User </li>
+                </ul>
               </div>
               <div className='col'>
                 <h3>Detail page</h3>

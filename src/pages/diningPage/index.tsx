@@ -4,9 +4,10 @@ import DiningBanner from '@/components/dining/DiningBanner';
 import { GetStaticProps } from 'next';
 import Promotion from '@/components/dining/_Promotion';
 import { _$, $all } from '@/lib/utils';
+import ModalLogin from '@/components/dining/_ModalLogin'
+import ModalProfile from '../../components/modal/Profile'
 
-const Dining = ({ diningDetail, diningPage, menuList, categoriesArr }: any) => {
-
+const Dining = ({ diningDetail, diningPage, menuList, categoriesArr, user, bookings }: any) => {
   const handleFilter = ((target: any, cat: string) => {
     const arr: any = $all(".dining-wrap")
     const arr1: any = $all(".filter li")
@@ -18,32 +19,35 @@ const Dining = ({ diningDetail, diningPage, menuList, categoriesArr }: any) => {
     target.classList.toggle("active")
 
   });
-
   return (
-    <main>
-      <DiningBanner diningPage={diningPage} diningDetail={diningDetail} />
-      {diningPage.promotion && <Promotion promotion={diningPage} />}
-      <section>
-        <div className="container">
-          <div className='filter'>
-            <ul>
-              <li className="active" onClick={(e) => { e.preventDefault(); handleFilter(e.target, "All") }}>All</li>
-              {categoriesArr?.category.map((cat: string, i: number) => (<li key={i} onClick={(e) => { e.preventDefault(); handleFilter(e.target, cat) }}>{cat}</li>))}
-            </ul>
-          </div>
-          {categoriesArr.category.map((cat: string, i: number,) => (
-            <div className='dining-wrap active' key={i} data-id={cat} >
-              <h2 className="h2 text-center" tabIndex={0}>{cat}</h2>
-              <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 listCards">
-                {diningDetail?.map((restaurant: any, i: any) => (
-                  (cat == restaurant.fields.category) && <PostCard key={restaurant.fields.slug} restaurant={restaurant} menuList={menuList} />
-                ))}
-              </div>
+    <>
+      <main>
+        <DiningBanner diningPage={diningPage} diningDetail={diningDetail} />
+        {diningPage.promotion && <Promotion promotion={diningPage} />}
+        <section>
+          <div className="container">
+            <div className='filter'>
+              <ul>
+                <li className="active" onClick={(e) => { e.preventDefault(); handleFilter(e.target, "All") }}>All</li>
+                {categoriesArr?.category.map((cat: string, i: number) => (<li key={i} onClick={(e) => { e.preventDefault(); handleFilter(e.target, cat) }}>{cat}</li>))}
+              </ul>
             </div>
-          ))}
-        </div>
-      </section>
-    </main>
+            {categoriesArr.category.map((cat: string, i: number,) => (
+              <div className='dining-wrap active' key={i} data-id={cat} >
+                <h2 className="h2 text-center" tabIndex={0}>{cat}</h2>
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 listCards">
+                  {diningDetail?.map((restaurant: any, i: any) => (
+                    (cat == restaurant.fields.category) && <PostCard key={restaurant.fields.slug} restaurant={restaurant} menuList={menuList} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
+      <ModalLogin user={user} />
+      <ModalProfile bookings={bookings} user={user} />
+    </>
   )
 }
 
@@ -51,12 +55,16 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const response1 = await client.getEntries({ content_type: 'diningListPage' })
   const response2 = await client.getEntries({ content_type: 'diningPage' })
   const categories = await client.getEntries({ content_type: 'category' })
+  const users = await client.getEntry('4dV4l3i1cRm0i0edG1xLVP')
+  const response5 = await client.getEntries({ content_type: 'reserveTable' })
 
   return {
     props: {
       diningPage: response1?.items[0].fields,
       diningDetail: response2?.items,
       categoriesArr: categories?.items[0].fields || [],
+      bookings: response5?.items || [],
+      user: users?.fields,
       revalidate: 60,
     }
   }

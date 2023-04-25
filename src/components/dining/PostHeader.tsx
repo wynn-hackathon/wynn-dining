@@ -1,17 +1,9 @@
 
 import Image from 'next/image'
-import ModalReserveTable from './_ModalReserveTable';
-import Menu from './_menu'
 import { _$, handleSticky } from '@/lib/utils';
 
 const PostHeader = ({ restaurant, menuList }: any) => {
   const { name, desktopBanner, mobileBanner, subTitle, shortDescription, menu } = restaurant?.fields
-  const reserveInfo = {
-    restaurant: name,
-    startDate: '04/12/2023',
-    people: "2 Guests",
-    time: "5:00 PM"
-  }
 
   return (
     <>
@@ -48,8 +40,6 @@ const PostHeader = ({ restaurant, menuList }: any) => {
           </div>
         </div>
       </section>
-      <ModalReserveTable info={reserveInfo} />
-      {menu && <Menu name={name} menuList={menuList} />}
     </>
   )
 }

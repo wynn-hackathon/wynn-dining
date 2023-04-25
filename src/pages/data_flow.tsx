@@ -1,6 +1,15 @@
 import Head from 'next/head'
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function DataFlow(props: any) {
+  const [key, setKey] = useState('restaurant');
+  const [keyContentful, setKeyContentful] = useState('tab2_restaurant');
+  const [keyNextjs, setKeyNextjs] = useState('tab3_restaurant');
+
   return (
     <>
       <Head>
@@ -10,7 +19,77 @@ export default function DataFlow(props: any) {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div>DataFlow</div>
+        <div className='container landingPage'>
+          <section className='dataflow'>
+            <h2>Data Flow</h2>
+            <Tabs
+              id="tab1"
+              activeKey={key}
+              onSelect={(k: any) => setKey(k)}
+              className=""
+            >
+              <Tab eventKey="restaurant" title="Restaurant">
+                <div className='text-center'><Image src="/images/flow-data/data1.jpg" width="500" height="31" alt="Wynn Las Vegas" className='image100' /></div>
+              </Tab>
+              <Tab eventKey="profile" title="Profile">
+                <div className='text-center'><Image src="/images/flow-data/data2.jpg" width="500" height="31" alt="Wynn Las Vegas" className='image' /></div>
+              </Tab>
+            </Tabs>
+          </section>
+          <section className='contenful'>
+            <h2>Contentful Content Model</h2>
+            <Tabs
+              id="tab2"
+              activeKey={keyContentful}
+              onSelect={(k: any) => setKeyContentful(k)}
+              className=""
+            >
+              <Tab eventKey="tab2_restaurant" title="Restaurant">
+                <div className='text-center'><Image src="/images/flow-data/data3.jpg" width="800" height="31" alt="Wynn Las Vegas" className='image100' /></div>
+              </Tab>
+              <Tab eventKey="tab2_dining" title="Dining Page">
+                <div><Image src="/images/flow-data/data4.jpg" width="500" height="31" alt="Wynn Las Vegas" className='image' /></div>
+              </Tab>
+              <Tab eventKey="tab2_profile" title="Profile">
+                <div><Image src="/images/flow-data/data5.jpg" width="500" height="31" alt="Wynn Las Vegas" className='image' /></div>
+              </Tab>
+            </Tabs>
+            <section className='instance_model'>
+              <h3 className='bg'>create an instant of restaurant</h3>
+              <div className='text-center'><Image src="/images/flow-data/data5_1.jpg" width="800" height="31" alt="Wynn Las Vegas" className='image100' /></div>
+            </section>
+          </section>
+          <section className='nextjs'>
+            <h2>Next JS</h2>
+            <Tabs
+              id="tab3"
+              activeKey={keyNextjs}
+              onSelect={(k: any) => setKeyNextjs(k)}
+              className=""
+            >
+              <Tab eventKey="tab3_restaurant" title="Restaurant">
+                <div className='row row-cols-1 row-cols-md-2 layout-home'>
+                  <div className='col'>
+                    <Image src="/images/flow-data/data6.jpg" width="800" height="31" alt="Wynn Las Vegas" className='image' />
+                    <Image src="/images/flow-data/data8.jpg" width="800" height="31" alt="Wynn Las Vegas" className='image mt-5' />
+                  </div>
+                  <div className='col'><Image src="/images/flow-data/data7.jpg" width="500" height="31" alt="Wynn Las Vegas" className='image' /></div>
+                </div>
+              </Tab>
+              <Tab eventKey="tab3_profile" title="Profile">
+                <div>
+                  <p>Account login: wynnhackathon@gmail.com/Wynn1234 </p>
+                  <div className='row row-cols-1 rlayout_profile'>
+                    <div className='col-sm-3'><Image src="/images/flow-data/data9.jpg" width="274" height="324" alt="Wynn Las Vegas" className='image100' /></div>
+                    <div className='col-sm-3'> <Image src="/images/flow-data/data10.jpg" width="800" height="31" alt="Wynn Las Vegas" className='image100' /></div>
+                    <div className='col-sm-6'>  <Image src="/images/flow-data/data11.jpg" width="800" height="31" alt="Wynn Las Vegas" className='image100' /></div>
+                  </div>
+                </div>
+              </Tab>
+            </Tabs>
+          </section>
+          <section><h3 className='bg'>Click <Link href={'/images/wynn-dining_small.pdf'} rel="noopener noreferrer" target="_blank">here</Link> to view pdf file!</h3></section>
+        </div>
       </main>
     </>
   )

@@ -4,8 +4,6 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 import { isTablet, sticky, _$, isMobile } from '@/lib/utils'
 import { useRouter } from 'next/router';
-import ModalLogin from '../../components/dining/_ModalLogin'
-import ModalProfile from '../modal/Profile'
 
 const Header = () => {
 
@@ -45,7 +43,7 @@ const Header = () => {
 
   return (
     <>
-      <header id="myHeader">
+      <header id="myHeader" className={router.pathname.replace(/[^a-zA-Z0-9 ]/g, '')}>
         <SubHeader />
         <nav className="navbar navbar-expand-sm navbar-light mainNav">
           <div className="container">
@@ -62,7 +60,7 @@ const Header = () => {
               <i className="bi bi-person-circle"></i><Link className='login' href="" data-bs-toggle="modal" data-bs-target=".loginModal" >SIGN IN</Link>
               <span className='logout d-none'>
                 <Link href="" className='' onClick={handleLogout}>LogOut</Link> |
-                <Link href="" className='' data-bs-toggle="modal" data-bs-target=".profileModal">Profile</Link>
+                <Link href="" className='view_profile' data-bs-toggle="modal" data-bs-target=".profileModal">Profile</Link>
               </span>
             </div>
             <div className="collapse navbar-collapse" id="navbarNav">
@@ -92,8 +90,6 @@ const Header = () => {
           </div>
         </nav>
       </header>
-      <ModalLogin />
-      <ModalProfile />
     </>
   )
 }
