@@ -32,7 +32,7 @@ const Gallery = ({ photos }: any) => {
   const next = () => { slider?.slickNext(); };
   const previous = () => { slider?.slickPrev(); };
 
-  photos?.fields.gallery.forEach((item: any, i: number) => { titleArr.push(item.fields.title) })
+  photos?.fields.gallery.forEach((item: any, i: number) => { titleArr.push(item?.fields?.title) })
 
   var settings = {
     dots: true,

@@ -18,7 +18,7 @@ const Promotion = ({ promotion }: any) => {
         <div className="content">
           <h2>{name}</h2>
           <p>{shortDescription}</p>
-          <Link className="btn btn-primary" href={'/diningPage/' + slug}>Learn More</Link>
+          <Link className="btn btn-primary" href={'/landing/' + slug}>Read More</Link>
         </div>
       </div>
     </section>

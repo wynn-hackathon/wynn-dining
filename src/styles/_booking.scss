@@ -111,6 +111,8 @@
           position: absolute;
           right: 30px;
           top: 5px;
+          pointer-events: none;
+
           @media(max-width:767px){
             right: 0px;
           }
@@ -168,6 +170,7 @@
       padding: 0px;
       cursor: pointer;
       position: relative;
+      width: 100%;
 
       &:focus,
       &:focus-visible {
@@ -187,15 +190,12 @@
       position: absolute;
       z-index: 100;
       transform: scale(0.6);
+      pointer-events: none;
       @media (max-width: 768px){
         right: 30px;
       }
     }
 
-  }
-
-  .react-datepicker__day--selected {
-    background-color: $brown700;
   }
 }
 
@@ -212,4 +212,132 @@
       }
     }
   }
+}
+
+#reserveTableModal,#reserveTableUpdateModal {
+  .react-datepicker-popper{
+    z-index: 10;
+  }
+  .input-group {
+    .input-group-text {
+      width: 88px;
+      border:1px solid #bca68d;
+      background-color: transparent;
+      color: $gray500;
+      border-radius: 0px;
+    }
+  }
+  .input-reserve ,.react-datepicker-wrapper{
+    width: calc(100% - 88px);
+      border-radius: 0px;
+      background-color: transparent !important;
+      border-color: #bca68d;
+      text-transform: initial;
+      text-align: left;
+
+      &:after{
+        position: absolute;
+        right: 12px;
+        top: 12px;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0)
+      }
+
+  }
+  .react-datepicker__input-container{
+    width: 100%;
+    position: relative;
+    @include font-size($font-size-14);
+    &:after{
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      display: inline-block;
+      margin-left: 0.255em;
+      vertical-align: 0.255em;
+      content: "";
+      border-top: 0.3em solid;
+      border-right: 0.3em solid transparent;
+      border-bottom: 0;
+      border-left: 0.3em solid transparent;
+    }
+    input {
+      width: 100%;
+      border-radius: 0px;
+      background-color: transparent !important;
+      border:1px solid #bca68d;
+      padding: 4px 10px !important;
+      &:focus {
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0);
+        outline:0 !important;
+      }
+    }
+  }
+}
+
+.react-datepicker__day--selected{
+  background-color: $brown700 !important;
+  font-family: $font-avenir;
+}
+
+.profile_reservation {
+  border: 1px solid $gray200;
+  margin-bottom: 20px;
+
+  .header {
+    @include font-size($font-size-12);
+    text-transform: uppercase;
+    background-color: rgba(255,255,255,0.5);
+    padding: 10px;
+    border-bottom: 1px solid $gray200;
+
+    .col:not(:first-child) {
+      text-align: left;
+      @include media-size(big-mobile){
+        text-align: right;
+      }
+    }
+  }
+
+  .detail{
+    padding: 10px;
+    position: relative;
+    .name {
+      font-family: $font-avenir;
+    }
+    .col {
+      max-width: 180px;
+    }
+  }
+  .ctas-profile {
+    margin-top: 10px;
+    border-top: 1px dashed $gray200;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+
+    .link {
+      margin-left: 20px;
+      border: 0px;
+      background-color: transparent;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+      font-family: $font-avenir;
+      @include font-size($font-size-12);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+.fullView .yourInfo .form-control[disabled] {
+  background-color: #e9ecef !important;
+  border-color: #ced4da !important;
+  color: #8b8b8b;
+  cursor: not-allowed;
 }

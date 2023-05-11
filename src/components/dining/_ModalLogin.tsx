@@ -1,7 +1,7 @@
 import { $all, _$ } from "@/lib/utils"
 
 const ModalLogin = ({ user }: any) => {
-  const { email, password, name, phoneNumber } = user
+  const { email, password } = user
   const handleLogin = (e: any) => {
     e.preventDefault();
     const all: any = $all('#login .user_Data');
@@ -23,6 +23,11 @@ const ModalLogin = ({ user }: any) => {
     }
   }
 
+  const togglePass = (e: any) => {
+    e.target.classList.toggle('show');
+    e.target.classList.contains('show') ? (e.target.textContent = "Hide", e.target.previousElementSibling.type = "text") : (e.target.textContent = "Show", e.target.previousElementSibling.type = "password");
+  }
+
   return (
     <div className="modal fade fullView loginModal" id="loginModal" tabIndex={-1} aria-labelledby="Login" aria-hidden="true">
       <div className="modal-dialog">
@@ -39,9 +44,10 @@ const ModalLogin = ({ user }: any) => {
                   <input type="text" className="form-control user_Data" id="userName" required />
                   <input type="hidden" id="user_profile" value={email}></input>
                 </div>
-                <div className="mb-3">
+                <div className="mb-3 password">
                   <label>Password</label>
                   <input type="password" className="form-control user_Data" id="currPassword" required />
+                  <div className="show-hide" onClick={togglePass}>Show</div>
                   <div className="invalid-feedback password mt-3 text-danger">Password does not match</div>
                 </div>
                 <div className="ctas text-center">

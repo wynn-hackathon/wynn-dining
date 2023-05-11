@@ -3,11 +3,12 @@ import Slider from 'react-slick'
 import Link from "next/link";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { _$, $all, handleSticky } from "@/lib/utils";
+import { _$, $all } from "@/lib/utils";
 import { useState } from "react";
 
 //Render Item of Carousel
 export const RecommendedItems = ({ pic, i }: any) => {
+
   const { mobileBanner, name } = pic?.fields
   return (
     <div className="item">
@@ -27,7 +28,8 @@ export const RecommendedItems = ({ pic, i }: any) => {
 }
 
 //Render Caption of Item of Carousel
-export const Content = ({ title, description, slug, externalLink, i }: any) => {
+export const Content = ({ title, description, slug, externalLink, i, idMenu, handleMenuClick }: any) => {
+
   const url: any = externalLink ? externalLink : '/diningPage/' + slug;
   return (
     <div className="restaurant d-none" data-id={i}>
@@ -36,7 +38,7 @@ export const Content = ({ title, description, slug, externalLink, i }: any) => {
         <p>{description}</p>
       </div>
       <div className="ctas">
-        <button className="btn btn-secondary" data-bs-toggle="modal" data-bs-target=".menuModal" onClick={handleSticky}>View Menu</button>
+        <button className="btn btn-secondary" id-menu={idMenu} data-bs-toggle="modal" data-bs-target=".menuModal" onClick={handleMenuClick}>View Menu</button>
         <Link className="btn btn-primary" href={url}>View Detail</Link>
       </div>
     </div>
@@ -44,21 +46,26 @@ export const Content = ({ title, description, slug, externalLink, i }: any) => {
 }
 
 //Carousel
-const Recommendation = ({ list }: any) => {
+const Recommendation = ({ list, handleMenuClick }: any) => {
+
   const titleRecommendArr: any = [],
     descriptionRecommendArr: any = [],
     slugRecommendArr: any = [],
-    externalLinkArr: any = [];
+    externalLinkArr: any = [],
+    idMenuArr: any = [];
 
   const [slider, setSlider] = useState<any>(null);
   const next = () => { slider?.slickNext(); };
   const previous = () => { slider?.slickPrev(); };
 
   list?.forEach((item: any, i: number) => {
-    titleRecommendArr.push(item.fields.name);
-    descriptionRecommendArr.push(item.fields.shortDescription);
-    slugRecommendArr.push(item.fields.slug);
-    externalLinkArr.push(item.fields.externalLink);
+    const { name, shortDescription, slug, externalLink, menu } = item.fields
+
+    titleRecommendArr.push(name);
+    descriptionRecommendArr.push(shortDescription);
+    slugRecommendArr.push(slug);
+    externalLinkArr.push(externalLink);
+    idMenuArr.push(menu.sys.id)
   })
 
   var settings = {
@@ -115,7 +122,7 @@ const Recommendation = ({ list }: any) => {
           <span className="nextArrow arrow" onClick={next}><Image alt="Next" aria-label="Next" width="38" height="38" src="/images/icon-arrow.svg" /></span>
         </div>
         {titleRecommendArr?.map((title: any, i: number) => (
-          <Content title={title} description={descriptionRecommendArr[i]} slug={slugRecommendArr[i]} externalLink={externalLinkArr[i]} key={i} i={i} />
+          <Content title={title} description={descriptionRecommendArr[i]} slug={slugRecommendArr[i]} externalLink={externalLinkArr[i]} key={i} i={i} idMenu={idMenuArr[i]} handleMenuClick={handleMenuClick} />
         ))}
       </div>
     </section>

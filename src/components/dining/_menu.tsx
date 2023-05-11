@@ -11,20 +11,19 @@ export const MenuItem = ({ item }: any) => {
   )
 }
 
-const Menu = ({ name, menuList }: any) => {
+const Menu = ({ idRestaurant, menuList }: any) => {
   const menuArr: any = []
   const url: any = []
-
   menuList?.forEach((item: any, i: number) => {
-    if (item.fields.restaurantName == name) {
+    if (item.sys.id == idRestaurant) {
       menuArr?.push(item.fields.meals);
       url?.push(item.fields.logo.fields.file)
     }
   });
-  const categoryArr = ["Starters", "Platters", "Main", "Dessert"]
 
+  const categoryArr = ["Starters", "Platters", "Main", "Dessert"]
   return (
-    <div className="modal fade fullView menuModal" id="menuModal" tabIndex={-1} aria-labelledby="Reserve Table" aria-hidden="true">
+    <div className="modal fade fullView menuModal" id="menuModal" data-menu={idRestaurant} tabIndex={-1} aria-labelledby="Reserve Table" aria-hidden="true">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-body">
@@ -33,7 +32,7 @@ const Menu = ({ name, menuList }: any) => {
               <div className="header">
                 <div className="logo">
                   {url[0] && <Image
-                    alt={`Cover Image for ${name}`}
+                    alt={`Cover Image for menu`}
                     src={'https:' + url[0].url}
                     width={url[0].details.image.width}
                     height={url[0].details.image.height}

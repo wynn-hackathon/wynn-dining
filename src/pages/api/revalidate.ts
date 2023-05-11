@@ -7,7 +7,7 @@ const handler = async (req:NextApiRequest, res:NextApiResponse) => {
     return res
       .status(401)
       .json({ message: 'x-vercel-reval-key header not defined' })
-  } else if (inboundRevalToken !== process.env.CONTENTFUL_REVALIDATE_SECRET) {
+  } else if (inboundRevalToken !== process.env.NEXT_PUBLIC_CONTENTFUL_REVALIDATE_SECRET) {
     return res.status(401).json({ message: 'Invalid token' })
   }
 

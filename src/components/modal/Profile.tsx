@@ -1,17 +1,106 @@
-import { _$ } from "@/lib/utils"
+import { _$, $id, $all, handleSticky, reserveDataUpdate } from "@/lib/utils"
+import { CancelData, cmaAPI, getReserve, publicData } from "@/lib/contentful/reservation";
 import NonSSRWrapper from '../../components/modal/NonSSRWrapper'
 import Image from "next/image"
+import moment from "moment"
+import { useEffect, useState } from "react"
+
+export const CTAs = ({ user }: any) => {
+  const { nameRestaurant, partySize, date, time, email, name, phoneNumber } = user.fields;
+  const [reserveInfo, setReserveInfo] = useState({
+    restaurant: nameRestaurant,
+    people: partySize,
+    startDate: date,
+    time: time,
+    id: user.sys.id,
+  })
+
+  const handleEdit = (e: any) => {
+    e.preventDefault();
+    reserveDataUpdate(reserveInfo);
+    handleSticky()
+  };
+
+  const handleCancel = async (e: any) => {
+    const data = {
+      "fields": {
+        "nameRestaurant": {
+          "en-US": nameRestaurant
+        },
+        "partySize": {
+          "en-US": partySize
+        },
+        "date": {
+          "en-US": date
+        },
+        "time": {
+          "en-US": time
+        },
+        "status": {
+          "en-US": "Canceled"
+        },
+        "email": {
+          "en-US": email
+        },
+        "name": {
+          "en-US": name
+        },
+        "phoneNumber": {
+          "en-US": phoneNumber
+        }
+      }
+    }
+    e.preventDefault();
+    e.target.parentElement.previousElementSibling.textContent = "Status: Canceled";
+    e.target.parentElement.classList.add("d-none");
+    const card = await getReserve(cmaAPI + user.sys.id)
+    await CancelData(cmaAPI + user.sys.id, card.sys.version, data)
+    await publicData(cmaAPI + user.sys.id + '/published', card.sys.version + 1)
+  };
+
+  return (
+    <div>
+      <button data-bs-toggle="modal" data-bs-target=".reserveTableUpdateModal" onClick={handleEdit} className="link edit"><i className="bi bi-pencil-square"></i> Edit</button>
+      <button className="link cancel" onClick={handleCancel}><i className="bi bi-trash3"></i> Cancel</button>
+    </div>
+  )
+}
 
 export const Profile = ({ user }: any) => {
+  const { id, createdAt, version } = user.sys
+  const [createdDate, setCreatedDate] = useState(createdAt);
+
+
+  useEffect(() => {
+    setCreatedDate(moment(createdAt).format("MM/DD/YYYY"))
+  }, [createdAt]);
+
   const { date, nameRestaurant, partySize, time, status } = user.fields
   return (
-    <tr>
-      <td>{nameRestaurant}</td>
-      <td>{partySize}</td>
-      <td><NonSSRWrapper>{date}</NonSSRWrapper></td>
-      <td>{time}</td>
-      <td className="status">{status}</td>
-    </tr>
+    <div className="profile_reservation">
+      <div className="header">
+        <div className="row row-cols-1 row-cols-md-2">
+          <div className="col">
+            <span>Reservation Placed: {createdDate}</span>
+          </div>
+          <div className="col">
+            <div>Reservation# {id}</div>
+          </div>
+        </div>
+      </div>
+      <div className="detail">
+        <div><span className="name">{nameRestaurant}</span></div>
+        <div className="row row-cols-1">
+          <div className="col">Party Size: {partySize}</div>
+          <div className="col">Date: <NonSSRWrapper>{date}</NonSSRWrapper></div>
+          <div className="col">Time: {time}</div>
+        </div>
+        <div className="ctas-profile">
+          <div className="status">Status: {status}</div>
+          {(status == "Booked") && <CTAs user={user} />}
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -53,22 +142,7 @@ const ModalProfile = ({ bookings, user }: any) => {
               </div>
               <div className="reverseTbl">
                 <h2>Your reservations</h2>
-                <div className="table-responsive">
-                  <table className="table align-middle table-striped">
-                    <thead>
-                      <tr>
-                        <th>Restaurant</th>
-                        <th>Party Size</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {reservations?.map((item: any, i: any) => <Profile user={item} key={i} />)}
-                    </tbody>
-                  </table>
-                </div>
+                {reservations?.map((item: any, i: any) => <Profile user={item} key={i} />)}
               </div>
             </div>
           </div>

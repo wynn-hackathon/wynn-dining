@@ -79,7 +79,7 @@ h3,
     background-color: var(--secondary-color);
     color: $white;
 
-    &:active,
+    &:active,&.disabled,
     &:first-child:active {
         background-color: var(--secondary-color);
         border-color: var(--secondary-color);
@@ -96,7 +96,7 @@ h3,
     background-color: $white;
     color: var(--secondary-color);
 
-    &:active {
+    &:active,&.disabled {
         background-color: $white !important;
         color: var(--secondary-color) !important;
     }
@@ -151,7 +151,20 @@ input:-webkit-autofill:active {
 
 
 header:not(.diningPage, .diningPageslug){
-    .account{
+    .account,.account-m{
         display: none;
     }
 }
+
+
+a:-webkit-any-link:focus-visible,a:focus-visible,a:focus  {
+    outline-offset: 0px;
+    outline: 0px !important;
+}
+
+.dropdown-menu {
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+

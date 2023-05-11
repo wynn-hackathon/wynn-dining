@@ -21,14 +21,14 @@
         width: 100%;
 
         @include media-size(big-mobile) {
-            height: 414px;
-            min-height: 414px;
+            height: 450px;
+            min-height: 450px;
 
         }
 
         @include media-size(XL-desktop) {
-            aspect-ratio: 1536/414;
-            min-height: 414px;
+            aspect-ratio: 1536/450;
+            min-height: 450px;
             height: auto;
         }
     }
@@ -63,6 +63,13 @@
 
                 .btn {
                     margin: 0px 5px;
+                    @include font-size($font-size-12);
+                    min-width: 0px;
+
+                    @include media-size(big-mobile){
+                        @include font-size($font-size-14);
+                        min-width: 150px;
+                    }
                 }
             }
         }

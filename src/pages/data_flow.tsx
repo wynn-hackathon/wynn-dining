@@ -29,10 +29,10 @@ export default function DataFlow(props: any) {
               className=""
             >
               <Tab eventKey="restaurant" title="Restaurant">
-                <div className='text-center'><Image src="/images/flow-data/data1.jpg" width="500" height="31" alt="Wynn Las Vegas" className='image100' /></div>
+                <div className='text-center'><Image src="/images/flow-data/data1.jpg" width="1626" height="1188" alt="Wynn Las Vegas" className='image100' /></div>
               </Tab>
               <Tab eventKey="profile" title="Profile">
-                <div className='text-center'><Image src="/images/flow-data/data2.jpg" width="500" height="31" alt="Wynn Las Vegas" className='image' /></div>
+                <div className='text-center'><Image src="/images/flow-data/data2.jpg" width="797" height="320" alt="Wynn Las Vegas" className='image' /></div>
               </Tab>
             </Tabs>
           </section>
@@ -45,18 +45,18 @@ export default function DataFlow(props: any) {
               className=""
             >
               <Tab eventKey="tab2_restaurant" title="Restaurant">
-                <div className='text-center'><Image src="/images/flow-data/data3.jpg" width="800" height="31" alt="Wynn Las Vegas" className='image100' /></div>
+                <div className='text-center'><Image src="/images/flow-data/data3.jpg" width="2376" height="1422" alt="Wynn Las Vegas" className='image100' /></div>
               </Tab>
               <Tab eventKey="tab2_dining" title="Dining Page">
-                <div><Image src="/images/flow-data/data4.jpg" width="500" height="31" alt="Wynn Las Vegas" className='image' /></div>
+                <div><Image src="/images/flow-data/data4.jpg" width="1154" height="634" alt="Wynn Las Vegas" className='image' /></div>
               </Tab>
               <Tab eventKey="tab2_profile" title="Profile">
-                <div><Image src="/images/flow-data/data5.jpg" width="500" height="31" alt="Wynn Las Vegas" className='image' /></div>
+                <div><Image src="/images/flow-data/data5.jpg" width="1148" height="616" alt="Wynn Las Vegas" className='image' /></div>
               </Tab>
             </Tabs>
             <section className='instance_model'>
               <h3 className='bg'>create an instant of restaurant</h3>
-              <div className='text-center'><Image src="/images/flow-data/data5_1.jpg" width="800" height="31" alt="Wynn Las Vegas" className='image100' /></div>
+              <div className='text-center'><Image src="/images/flow-data/data5_1.jpg" width="2508" height="878" alt="Wynn Las Vegas" className='image100' /></div>
             </section>
           </section>
           <section className='nextjs'>
@@ -70,19 +70,19 @@ export default function DataFlow(props: any) {
               <Tab eventKey="tab3_restaurant" title="Restaurant">
                 <div className='row row-cols-1 row-cols-md-2 layout-home'>
                   <div className='col'>
-                    <Image src="/images/flow-data/data6.jpg" width="800" height="31" alt="Wynn Las Vegas" className='image' />
-                    <Image src="/images/flow-data/data8.jpg" width="800" height="31" alt="Wynn Las Vegas" className='image mt-5' />
+                    <Image src="/images/flow-data/data6.jpg" width="576" height="1291" alt="Wynn Las Vegas" className='image' />
+                    <Image src="/images/flow-data/data8.jpg" width="543" height="749" alt="Wynn Las Vegas" className='image mt-5' />
                   </div>
-                  <div className='col'><Image src="/images/flow-data/data7.jpg" width="500" height="31" alt="Wynn Las Vegas" className='image' /></div>
+                  <div className='col'><Image src="/images/flow-data/data7.jpg" width="597" height="2066" alt="Wynn Las Vegas" className='image' /></div>
                 </div>
               </Tab>
               <Tab eventKey="tab3_profile" title="Profile">
                 <div>
                   <p>Account login: wynnhackathon@gmail.com/Wynn1234 </p>
-                  <div className='row row-cols-1 rlayout_profile'>
-                    <div className='col-sm-3'><Image src="/images/flow-data/data9.jpg" width="274" height="324" alt="Wynn Las Vegas" className='image100' /></div>
-                    <div className='col-sm-3'> <Image src="/images/flow-data/data10.jpg" width="800" height="31" alt="Wynn Las Vegas" className='image100' /></div>
-                    <div className='col-sm-6'>  <Image src="/images/flow-data/data11.jpg" width="800" height="31" alt="Wynn Las Vegas" className='image100' /></div>
+                  <div className='row row-cols-1 layout_profile'>
+                    <div className='col-sm-3'><Image src="/images/flow-data/data9.jpg" width="548" height="648" alt="Wynn Las Vegas" className='image100' /></div>
+                    <div className='col-sm-3'> <Image src="/images/flow-data/data10.jpg" width="367" height="400" alt="Wynn Las Vegas" className='image100' /></div>
+                    <div className='col-sm-6'>  <Image src="/images/flow-data/data11.jpg" width="974" height="1136" alt="Wynn Las Vegas" className='image100' /></div>
                   </div>
                 </div>
               </Tab>

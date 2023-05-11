@@ -23,8 +23,8 @@ export default function AboutOurHackathon(props: any) {
           </div>
           <div className='about'>
             <h2>Features</h2>
-            <div className='row'>
-              <div className='col'>
+            <div className='row row-cols-1'>
+              <div className='col col-sm-6'>
                 <h3>Home Page</h3>
                 <ul>
                   <li>Banner</li>
@@ -42,7 +42,7 @@ export default function AboutOurHackathon(props: any) {
                   <li>Reservations of the User </li>
                 </ul>
               </div>
-              <div className='col'>
+              <div className='col col-sm-6'>
                 <h3>Detail page</h3>
                 <ul>
                   <li>Banner with headline box</li>

@@ -31,7 +31,10 @@ export default function OurFlow(props: any) {
             <div className='info'>
               <p className='name'>Kannamkaavil, Arun</p>
               <p className='title'>Mobile developer</p>
-              <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio aenean sed adipiscing diam donec. </p>
+              <ul className='info-profile'>
+                <li><i className="bi bi-envelope"></i><a href='mailto:arun.kannamkaavil@wynnlasvegas.com'> arun.kannamkaavil@wynnlasvegas.com</a></li>
+                <li><i className="bi bi-phone"></i> (213) 210-5017</li>
+              </ul>
             </div>
           </div>
           <div className='developer'>
@@ -39,7 +42,10 @@ export default function OurFlow(props: any) {
             <div className='info'>
               <p className='name'>Fransiscos, Melat</p>
               <p className='title'>Analyst - DevOps</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio aenean sed adipiscing diam donec. </p>
+              <ul className='info-profile'>
+                <li><i className="bi bi-envelope"></i><a href='mailto:melat.fransiscos@wynnlasvegas.com'> melat.fransiscos@wynnlasvegas.com</a></li>
+                <li><i className="bi bi-phone"></i> (702) 426-2210</li>
+              </ul>
             </div>
           </div>
           <div className='developer'>
@@ -47,7 +53,10 @@ export default function OurFlow(props: any) {
             <div className='info'>
               <p className='name'>Nguyen, Van</p>
               <p className='title'>Front End Web Developer</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio aenean sed adipiscing diam donec. </p>
+              <ul className='info-profile'>
+                <li><i className="bi bi-envelope"></i><a href='mailto:van.nguyen@wynnlasvegas.com'> van.nguyen@wynnlasvegas.com</a></li>
+                <li><i className="bi bi-phone"></i> (737) 704-1005</li>
+              </ul>
             </div>
           </div>
           <div className='developerTeam'>

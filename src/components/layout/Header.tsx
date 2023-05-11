@@ -26,18 +26,23 @@ const Header = () => {
     _$('.account .logout').classList.toggle('d-none')
     _$('.account-m .login').classList.toggle('d-none')
     _$('.account-m .logout').classList.toggle('d-none')
+    menuClick();
+    _$('#profileModal .btn-close').click();
   }
 
 
   useEffect(() => {
     window?.addEventListener("scroll", (e) => {
-      let header, height;
-      isMobile() ? header = _$("#myHeader") : header = _$("#myHeader .mainNav");
-      isMobile() ? height = 180 : height = 220;
-      sticky(header, height, "sticky");
-      if (isTablet() && _$(".menu-open-m")) {
-        (_$("main").getBoundingClientRect().top < 300) && _$('.navbar-toggler').click();
+      if (typeof document !== 'undefined' && !(_$("body").classList.contains("modal-open"))) {
+        let header, height;
+        isMobile() ? header = _$("#myHeader") : header = _$("#myHeader .mainNav");
+        isMobile() ? height = 180 : height = 220;
+        sticky(header, height, "sticky");
+        if (isTablet() && _$(".menu-open-m")) {
+          (_$("main").getBoundingClientRect().top < 300) && _$('.navbar-toggler').click();
+        }
       }
+
     });
   });
 
@@ -57,19 +62,19 @@ const Header = () => {
               </div>
             </button>
             <div className='account'>
-              <i className="bi bi-person-circle"></i><Link className='login' href="" data-bs-toggle="modal" data-bs-target=".loginModal" >SIGN IN</Link>
+              <i className="bi bi-person-circle"></i><Link className='login closeMenu' href="" data-bs-toggle="modal" data-bs-target=".loginModal" >SIGN IN</Link>
               <span className='logout d-none'>
-                <Link href="" className='' onClick={handleLogout}>LogOut</Link> |
-                <Link href="" className='view_profile' data-bs-toggle="modal" data-bs-target=".profileModal">Profile</Link>
+                <Link href="" className='closeMenu' onClick={handleLogout}>LogOut</Link> |
+                <Link href="" className='view_profile closeMenu' data-bs-toggle="modal" data-bs-target=".profileModal">Profile</Link>
               </span>
             </div>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
                 <li className='account-m'>
-                  <i className="bi bi-person-circle"></i><Link href="" className='login' data-bs-toggle="modal" data-bs-target=".loginModal" >SIGN IN</Link>
+                  <i className="bi bi-person-circle"></i><Link href="" onClick={menuClick} className='login' data-bs-toggle="modal" data-bs-target=".loginModal" >SIGN IN</Link>
                   <span className='logout d-none'>
-                    <Link href="" className='' onClick={handleLogout}>LogOut</Link> |
-                    <Link href="/" className='' data-bs-toggle="modal" data-bs-target=".profileModal">Profile</Link>
+                    <Link href="" className='closeMenu' onClick={handleLogout}>LogOut</Link> |
+                    <Link href="/" className='closeMenu' onClick={menuClick} data-bs-toggle="modal" data-bs-target=".profileModal">Profile</Link>
                   </span>
                 </li>
                 <li className="nav-item home">

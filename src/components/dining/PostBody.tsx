@@ -7,8 +7,9 @@ import FAQs from './_FAQs';
 import Recommendation from './_Recommendation';
 import Modal from './_modal';
 
-const PostBody = ({ restaurant }: any) => {
+const PostBody = ({ restaurant, handleMenuClick }: any) => {
   const { content, gallery, specialMeal, testimonial, faqList, recommendationRestaurants } = restaurant?.fields;
+
   return (
     <>
       <div className="container">
@@ -29,7 +30,7 @@ const PostBody = ({ restaurant }: any) => {
       {specialMeal && <TwoCols specialMeal={restaurant} />}
       {testimonial && <Testimonial testimonial={restaurant} />}
       {faqList && <FAQs faq={restaurant} />}
-      {recommendationRestaurants && <Recommendation list={recommendationRestaurants} />}
+      {recommendationRestaurants && <Recommendation list={recommendationRestaurants} handleMenuClick={handleMenuClick} />}
       {gallery && <Modal photos={restaurant} />}
     </>
   )

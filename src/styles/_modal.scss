@@ -10,7 +10,7 @@
 
   .modal-body {
     margin: 30px auto 30px auto;
-    padding: 15px;
+    padding: 50px 15px 15px 15px;
     min-width: 0px;
     width: 100%;
 
@@ -37,10 +37,10 @@
   }
 
   .btn-close {
-    top: 20px;
+    top: 40px;
     right: 20px;
 
-    @include media-size(desktop) {
+    @include media-size(big-mobile) {
       transform: scale(1.5);
       top: 40px;
       right: 40px;
@@ -59,9 +59,10 @@
 
   .modal-content {
     border: none;
+
    @include media-size(big-mobile){
     .w550 {
-      padding: 40px 30px;
+    padding: 40px 30px;
     background-color: rgba(255,255,255,.4);
     box-shadow: 0px 3px 18px 3px rgba(119, 92, 61, 0.05);
     }
@@ -105,7 +106,7 @@
     }
   }
 
-  .submitted .infoDetail{
+  .submitted .infoDetail, .submitted .infoTable{
     display: none;
   }
   .thankyou {
@@ -204,13 +205,6 @@
   .modal-body {
     padding-top: 100px;
   }
-  // .logo {
-  //   background: url("/images/amv-logo.svg") no-repeat center center;
-  //   width: 100px;
-  //   height: 70px;
-  //   background-size: contain;
-  //   margin: 0px auto 20px auto;
-  // }
 
   label {
     margin-bottom: 5px;
@@ -249,6 +243,21 @@
       padding: 50px 35px;
       background-color: rgba(255,255,255,.4);
       box-shadow: 0px 3px 18px 3px rgba(119, 92, 61, 0.05);
+    }
+  }
+
+  .password {
+    position: relative;
+
+    .show-hide {
+      position: absolute;
+      right: 10px;
+      top: 40px;
+      cursor: pointer;
+      @include font-size($font-size-12);
+      text-transform: uppercase;
+      font-family: $font-avenir;
+      color: var(--secondary-color);
     }
   }
 }

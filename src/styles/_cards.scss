@@ -3,7 +3,7 @@
 
   .col {
     position: relative;
-    margin-bottom: 0px;
+    margin-bottom: 30px;
     padding-bottom: 50px;
 
     @media(max-width:767px){
@@ -25,7 +25,7 @@
     }
 
     .name {
-      font-family: $font-avenir;
+      font-family: $font-avenir-bold;
     }
 
     .card-text{
@@ -38,7 +38,7 @@
     left: 30px;
     bottom: 15px;
     display: flex;
-    justify-content:center;
+    justify-content:space-between;
     align-items: center;
     width: calc(100% - 60px);
 
@@ -50,7 +50,7 @@
   }
 
   .btn {
-    min-width: 200px;
+    min-width: 150px;
   }
 }
 
@@ -70,8 +70,14 @@
     list-style: none;
 
     li {
-      margin-right: 15px;
+      margin-right: 10px;
       cursor: pointer;
+      @include font-size($font-size-14);
+
+      @include media-size(big-mobile){
+        @include font-size($font-size-16);
+        margin-right: 15px;
+      }
 
       &.active{
         text-decoration: underline;
@@ -85,10 +91,6 @@
 
   .col {
     margin-bottom: 20px;
-
-    @include media-size(big-mobile){
-      margin-bottom: 0px;
-    }
   }
 }
 
